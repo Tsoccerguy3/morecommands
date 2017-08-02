@@ -90,7 +90,7 @@ public final class ASMNames {
 		Object_init(Type.Object, "<init>", "<init>", "V"),
 		ItemStack_onItemUse(Type.ItemStack, "onItemUse", "func_179546_a", Type.EnumActionResult.getDesc(), Type.EntityPlayer.getDesc(), Type.World.getDesc(), Type.BlockPos.getDesc(), Type.EnumHand.getDesc(), Type.EnumFacing.getDesc(), "FFF"),
 		ItemStack_getItem(Type.ItemStack, "getItem", "func_77973_b", Type.Item.getDesc()),
-		Item_onItemUse(Type.Item, "onItemUse", "func_180614_a", Type.EnumActionResult.getDesc(), Type.ItemStack.getDesc(), Type.EntityPlayer.getDesc(), Type.World.getDesc(), Type.BlockPos.getDesc(), Type.EnumHand.getDesc(), Type.EnumFacing.getDesc(), "FFF"),
+		Item_onItemUse(Type.Item, "onItemUse", "func_180614_a", Type.EnumActionResult.getDesc(), Type.EntityPlayer.getDesc(), Type.World.getDesc(), Type.BlockPos.getDesc(), Type.EnumHand.getDesc(), Type.EnumFacing.getDesc(), "FFF"),
 		ItemStackChangeSizeEvent_init(Type.ItemStackChangeSizeEvent, "<init>", "<init>", "V", Type.EntityPlayer.getDesc(), Type.ItemStack.getDesc(), "II"),
 		EventHandler_post(Type.EventHandler, "post", "post", "Z", Type.Event.getDesc()),
 		ForgeHooks_onPlaceItemIntoWorld(Type.ForgeHooks, "onPlaceItemIntoWorld", "onPlaceItemIntoWorld", Type.EnumActionResult.getDesc(), Type.ItemStack.getDesc(), Type.EntityPlayer.getDesc(), Type.World.getDesc(), Type.BlockPos.getDesc(), Type.EnumFacing.getDesc(), "FFF", Type.EnumHand.getDesc()),

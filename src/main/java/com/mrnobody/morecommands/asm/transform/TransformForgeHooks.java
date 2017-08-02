@@ -8,6 +8,7 @@ import org.objectweb.asm.Opcodes;
 import org.objectweb.asm.tree.AbstractInsnNode;
 import org.objectweb.asm.tree.ClassNode;
 import org.objectweb.asm.tree.FieldInsnNode;
+import org.objectweb.asm.tree.FrameNode;
 import org.objectweb.asm.tree.InsnList;
 import org.objectweb.asm.tree.InsnNode;
 import org.objectweb.asm.tree.JumpInsnNode;
@@ -92,6 +93,7 @@ public class TransformForgeHooks extends NodeTransformer {
 							postEvent.add(new FieldInsnNode(Opcodes.GETFIELD, NEW_SIZE.getOwnerInternalName(), NEW_SIZE.getEnvName(), NEW_SIZE.getDesc()));
 							postEvent.add(new VarInsnNode(Opcodes.ISTORE, 14));
 							postEvent.add(label);
+							postEvent.add(new FrameNode(Opcodes.F_SAME, 0, null, 0, null));
 							
 							method.instructions.insert(insn, postEvent);
 							
