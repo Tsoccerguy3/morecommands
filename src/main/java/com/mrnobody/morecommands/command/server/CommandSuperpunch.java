@@ -136,7 +136,7 @@ public class CommandSuperpunch extends StandardCommand implements ServerCommandP
                 }
                 
                 //SUPERPUNCH :D
-                j *= factor;
+                j = Math.max(j * factor, factor);
 
                 if (f > 0.0F || f1 > 0.0F)
                 {
