@@ -9,7 +9,6 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.atomic.AtomicInteger;
 
 import com.mrnobody.morecommands.core.MoreCommands;
-import com.mrnobody.morecommands.util.ObfuscatedNames.ObfuscatedField;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockRailBase;
@@ -36,8 +35,6 @@ import net.minecraft.network.NetworkManager;
 import net.minecraft.network.NetworkSystem;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.management.PlayerList;
-import net.minecraft.stats.StatBase;
-import net.minecraft.stats.StatList;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.text.Style;
 import net.minecraft.world.World;

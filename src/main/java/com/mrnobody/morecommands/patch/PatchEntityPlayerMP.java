@@ -556,7 +556,6 @@ public class PatchEntityPlayerMP implements PatchManager.StateEventBasedPatch {
 			else return super.getDigSpeed(state, pos);
 		}
 		
-		
 		@Override
 		public void onDeath(DamageSource cause) {
 			boolean keepInventory = this.world.getGameRules().getBoolean("keepInventory");

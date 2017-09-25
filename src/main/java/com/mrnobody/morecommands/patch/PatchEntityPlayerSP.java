@@ -325,7 +325,7 @@ public class PatchEntityPlayerSP implements PatchManager.StateEventBasedPatch, P
 	    				inetaddress = InetAddress.getByName(ip);
 	    				GuiConnecting.this.networkManager = NetworkManager.createNetworkManagerAndConnect(inetaddress, port, GuiConnecting.this.mc.gameSettings.isUsingNativeTransport());
 	    				GuiConnecting.this.networkManager.setNetHandler(new NetHandlerLoginClient(GuiConnecting.this.networkManager, GuiConnecting.this.mc, GuiConnecting.this.previousGuiScreen));
-	    				GuiConnecting.this.networkManager.sendPacket(new C00Handshake(335, ip, port, EnumConnectionState.LOGIN, true));
+	    				GuiConnecting.this.networkManager.sendPacket(new C00Handshake(ip, port, EnumConnectionState.LOGIN, true));
 	    				GuiConnecting.this.networkManager.sendPacket(new CPacketLoginStart(GuiConnecting.this.mc.getSession().getProfile()));
 	    			}
 	    			catch (UnknownHostException unknownhostexception) {

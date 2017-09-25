@@ -20,7 +20,6 @@ import org.objectweb.asm.tree.VarInsnNode;
 
 import com.google.common.collect.ImmutableSet;
 import com.mrnobody.morecommands.asm.ASMNames;
-import com.mrnobody.morecommands.asm.MoreCommandsLoadingPlugin;
 import com.mrnobody.morecommands.asm.NodeTransformer;
 
 /**
