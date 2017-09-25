@@ -551,7 +551,7 @@ public class PatchEntityPlayerSP implements PatchManager.StateEventBasedPatch, P
 	        this.mc.gameSettings.difficulty = packetIn.getDifficulty();
 	        this.mc.loadWorld(ReflectionHelper.get(ObfuscatedField.NetHandlerPlayClient_clientWorldController, clientWorldController, this));
 	        this.mc.player.dimension = packetIn.getDimension();
-	        this.mc.displayGuiScreen(new GuiDownloadTerrain(this));
+	        this.mc.displayGuiScreen(new GuiDownloadTerrain());
 	        this.mc.player.setEntityId(packetIn.getPlayerId());
 	        this.currentServerMaxPlayers = packetIn.getMaxPlayers();
 	        this.mc.player.setReducedDebug(packetIn.isReducedDebugInfo());
