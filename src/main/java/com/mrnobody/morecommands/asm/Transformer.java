@@ -3,7 +3,6 @@ package com.mrnobody.morecommands.asm;
 import java.util.Set;
 
 import org.objectweb.asm.ClassReader;
-import org.objectweb.asm.ClassVisitor;
 import org.objectweb.asm.ClassWriter;
 
 import net.minecraft.launchwrapper.IClassTransformer;
