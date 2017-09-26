@@ -109,7 +109,7 @@ public final class ObfuscatedNames {
 		public static final ObfuscatedField<FMLClientHandler, CountDownLatch> FMLClientHandler_startupConnectionData;
 		public static final ObfuscatedField<FMLClientHandler, Map<ServerData, ExtendedServerListData>> FMLClientHandler_serverDataTag;
 		public static final ObfuscatedField<GuiConnecting, AtomicInteger> GuiConnecting_CONNECTION_ID;
-		//field_146811_z
+		
 		static {if (FMLCommonHandler.instance().getSide().isClient()) {
 			NetHandlerPlayClient_guiScreenServer = new ObfuscatedField<NetHandlerPlayClient, GuiScreen>("guiScreenServer", "field_147307_j", NetHandlerPlayClient.class, GuiScreen.class);
 			ClientCommandHandler_instance = new ObfuscatedField<ClientCommandHandler, ClientCommandHandler>("instance", "instance", ClientCommandHandler.class, ClientCommandHandler.class);
@@ -152,7 +152,7 @@ public final class ObfuscatedNames {
 				<NetHandlerPlayServer, Double>("firstGoodZ", "field_184351_n", NetHandlerPlayServer.class, double.class);
 		public static final ObfuscatedField<NetHandlerPlayServer, Double> NetHandlerPlayServer_lastGoodX = new ObfuscatedField
 				<NetHandlerPlayServer, Double>("lastGoodX", "field_184352_o", NetHandlerPlayServer.class, double.class);
-		public static final ObfuscatedField<NetHandlerPlayServer, Double> NetHandlerPlayServer_lastGoodXY = new ObfuscatedField
+		public static final ObfuscatedField<NetHandlerPlayServer, Double> NetHandlerPlayServer_lastGoodY = new ObfuscatedField
 				<NetHandlerPlayServer, Double>("lastGoodY", "field_184353_p", NetHandlerPlayServer.class, double.class);
 		public static final ObfuscatedField<NetHandlerPlayServer, Double> NetHandlerPlayServer_lastGoodZ = new ObfuscatedField
 				<NetHandlerPlayServer, Double>("lastGoodZ", "field_184354_q", NetHandlerPlayServer.class, double.class);

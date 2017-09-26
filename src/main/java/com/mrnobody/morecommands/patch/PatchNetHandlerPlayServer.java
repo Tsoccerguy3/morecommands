@@ -103,7 +103,7 @@ public class PatchNetHandlerPlayServer implements PatchManager.ForgeEventBasedPa
 		private static final Field firstGoodY = ReflectionHelper.getField(ObfuscatedField.NetHandlerPlayServer_firstGoodY);
 		private static final Field firstGoodZ = ReflectionHelper.getField(ObfuscatedField.NetHandlerPlayServer_firstGoodZ);
 		private static final Field lastGoodX = ReflectionHelper.getField(ObfuscatedField.NetHandlerPlayServer_lastGoodX);
-		private static final Field lastGoodY = ReflectionHelper.getField(ObfuscatedField.NetHandlerPlayServer_lastGoodXY);
+		private static final Field lastGoodY = ReflectionHelper.getField(ObfuscatedField.NetHandlerPlayServer_lastGoodY);
 		private static final Field lastGoodZ = ReflectionHelper.getField(ObfuscatedField.NetHandlerPlayServer_lastGoodZ);
 		private static final Field targetPos = ReflectionHelper.getField(ObfuscatedField.NetHandlerPlayServer_targetPos);
 		private static final Field lastPositionUpdate = ReflectionHelper.getField(ObfuscatedField.NetHandlerPlayServer_lastPositionUpdate);
