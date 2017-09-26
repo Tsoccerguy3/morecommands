@@ -152,7 +152,7 @@ public final class ObfuscatedNames {
 				<NetHandlerPlayServer, Double>("firstGoodZ", "field_184351_n", NetHandlerPlayServer.class, double.class);
 		public static final ObfuscatedField<NetHandlerPlayServer, Double> NetHandlerPlayServer_lastGoodX = new ObfuscatedField
 				<NetHandlerPlayServer, Double>("lastGoodX", "field_184352_o", NetHandlerPlayServer.class, double.class);
-		public static final ObfuscatedField<NetHandlerPlayServer, Double> NetHandlerPlayServer_lastGoodXY = new ObfuscatedField
+		public static final ObfuscatedField<NetHandlerPlayServer, Double> NetHandlerPlayServer_lastGoodY = new ObfuscatedField
 				<NetHandlerPlayServer, Double>("lastGoodY", "field_184353_p", NetHandlerPlayServer.class, double.class);
 		public static final ObfuscatedField<NetHandlerPlayServer, Double> NetHandlerPlayServer_lastGoodZ = new ObfuscatedField
 				<NetHandlerPlayServer, Double>("lastGoodZ", "field_184354_q", NetHandlerPlayServer.class, double.class);
