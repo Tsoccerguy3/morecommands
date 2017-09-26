@@ -25,6 +25,7 @@ import net.minecraftforge.fml.common.eventhandler.Event;
  * @author MrNobody98
  */
 public class PatchChatGui implements PatchManager.ForgeEventBasedPatch {
+	private static boolean skipLog = true;
 	private String displayName;
 	
 	PatchChatGui(String displayName) {
@@ -52,7 +53,7 @@ public class PatchChatGui implements PatchManager.ForgeEventBasedPatch {
 	
 	@Override
 	public <T extends Event> boolean printLogFor(T event) {
-		return true;
+		return !(skipLog = !skipLog);
 	}
 	
 	@Override
