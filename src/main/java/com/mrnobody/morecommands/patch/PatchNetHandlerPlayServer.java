@@ -99,12 +99,12 @@ public class PatchNetHandlerPlayServer implements PatchManager.ForgeEventBasedPa
 	}
 	
 	public static class NetHandlerPlayServer extends net.minecraft.network.NetHandlerPlayServer {
-		private static final Logger logger = LogManager.getLogger(net.minecraft.network.NetHandlerPlayServer.class);
+		private static final Logger LOGGER = LogManager.getLogger(net.minecraft.network.NetHandlerPlayServer.class);
 		private static final Field firstGoodX = ReflectionHelper.getField(ObfuscatedField.NetHandlerPlayServer_firstGoodX);
 		private static final Field firstGoodY = ReflectionHelper.getField(ObfuscatedField.NetHandlerPlayServer_firstGoodY);
 		private static final Field firstGoodZ = ReflectionHelper.getField(ObfuscatedField.NetHandlerPlayServer_firstGoodZ);
 		private static final Field lastGoodX = ReflectionHelper.getField(ObfuscatedField.NetHandlerPlayServer_lastGoodX);
-		private static final Field lastGoodY = ReflectionHelper.getField(ObfuscatedField.NetHandlerPlayServer_lastGoodXY);
+		private static final Field lastGoodY = ReflectionHelper.getField(ObfuscatedField.NetHandlerPlayServer_lastGoodY);
 		private static final Field lastGoodZ = ReflectionHelper.getField(ObfuscatedField.NetHandlerPlayServer_lastGoodZ);
 		private static final Field targetPos = ReflectionHelper.getField(ObfuscatedField.NetHandlerPlayServer_targetPos);
 		private static final Field lastPositionUpdate = ReflectionHelper.getField(ObfuscatedField.NetHandlerPlayServer_lastPositionUpdate);
@@ -116,7 +116,7 @@ public class PatchNetHandlerPlayServer implements PatchManager.ForgeEventBasedPa
 	    private MinecraftServer mcServer;
 	    public final boolean enabled;
 		private boolean overrideNoclip = false;
-
+		
 	    NetHandlerPlayServer(MinecraftServer mcServer, NetworkManager netManager, net.minecraft.entity.player.EntityPlayerMP player) {
 	        super(mcServer, netManager, player);
 	        this.mcServer = mcServer;
@@ -279,7 +279,7 @@ public class PatchNetHandlerPlayServer implements PatchManager.ForgeEventBasedPa
 	                            
 	                            if (i > 5)
 	                            {
-	                            	logger.debug("{} is sending move packets too frequently ({} packets since last tick)", this.player.getName(), i);
+	                            	LOGGER.debug("{} is sending move packets too frequently ({} packets since last tick)", this.player.getName(), i);
 	                                i = 1;
 	                            }
 
@@ -289,7 +289,7 @@ public class PatchNetHandlerPlayServer implements PatchManager.ForgeEventBasedPa
 
 	                                if (d11 - d10 > (double)(f2 * (float)i) && (!this.mcServer.isSinglePlayer() || !this.mcServer.getServerOwner().equals(this.player.getName())))
 	                                {
-	                                    logger.warn("{} moved too quickly! {},{},{}", this.player.getName(), d7, d8, d9);
+	                                    LOGGER.warn("{} moved too quickly! {},{},{}", this.player.getName(), d7, d8, d9);
 	                                    this.setPlayerLocation(this.player.posX, this.player.posY, this.player.posZ, this.player.rotationYaw, this.player.rotationPitch);
 	                                    return;
 	                                }
