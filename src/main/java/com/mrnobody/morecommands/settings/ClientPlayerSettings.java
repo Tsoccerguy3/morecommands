@@ -165,14 +165,17 @@ public final class ClientPlayerSettings extends PlayerSettings {
 					Object name = Block.blockRegistry.getNameForObject(entry2.getKey());
 					if (name == null) continue; int color = entry2.getValue();
 					
-					JsonArray rgb = new JsonArray(); rgb.add(new JsonPrimitive(color & 0xFF));
-					rgb.add(new JsonPrimitive((color >>> 8) & 0xFF)); rgb.add(new JsonPrimitive((color >>> 16) & 0xFF));
+					String rgb = "#" + fillWith0s(Integer.toHexString((color >> 16) & 0xFF).toUpperCase(), 2)
+								+ fillWith0s(Integer.toHexString((color >> 8) & 0xFF).toUpperCase(), 2)
+								+ fillWith0s(Integer.toHexString((color >> 0) & 0xFF).toUpperCase(), 2);
 					
-					colors.add(name.toString(), rgb);
+					colors.add(name.toString(), new JsonPrimitive(rgb));
 				}
 				
 				data.add("radius", new JsonPrimitive(entry.getValue().radius));
 				data.add("colors", colors);
+				
+				obj.add(entry.getKey(), data);
 			}
 			
 			return obj;
@@ -199,17 +202,16 @@ public final class ClientPlayerSettings extends PlayerSettings {
 				Map<Block, Integer> cols = new HashMap<Block, Integer>();
 				
 				for (Map.Entry<String, JsonElement> entry2 : colors.getAsJsonObject().entrySet()) {
-					if (!entry2.getValue().isJsonArray()) continue;
-					JsonArray rgb = entry2.getValue().getAsJsonArray();
+					if (!entry2.getValue().isJsonPrimitive() ||
+						!entry2.getValue().getAsJsonPrimitive().getAsString().startsWith("#") ||	
+						entry2.getValue().getAsJsonPrimitive().getAsString().length() != 7) continue;
+						
+					String rgb = entry2.getValue().getAsJsonPrimitive().getAsString().substring(1);
+					int color;
 					
-					if (rgb.size() != 3 || 
-						!rgb.get(0).isJsonPrimitive() || !rgb.get(0).getAsJsonPrimitive().isNumber() ||
-						!rgb.get(1).isJsonPrimitive() || !rgb.get(1).getAsJsonPrimitive().isNumber() ||
-						!rgb.get(2).isJsonPrimitive() || !rgb.get(2).getAsJsonPrimitive().isNumber()) continue;
-					
-					int r = rgb.get(0).getAsInt(), g = rgb.get(1).getAsInt(), b = rgb.get(2).getAsInt();
-					int color = b << 16 | g << 8 | r;;
-					
+					try {color = Integer.parseInt(rgb, 16);}
+					catch (Exception ex) {continue;}
+						
 					Block block = Block.getBlockFromName(entry2.getKey());
 					if (block != null)
 						try {block = Block.getBlockById(Integer.parseInt(entry2.getKey()));}
@@ -228,6 +230,12 @@ public final class ClientPlayerSettings extends PlayerSettings {
 		@Override
 		public Class<Map<String, XrayInfo>> getTypeClass() {
 			return (Class<Map<String, XrayInfo>>) (Class<?>) Map.class;
+		}
+		
+		private String fillWith0s(String str, int requiredLength) {
+			StringBuilder b = new StringBuilder();
+			for (int i = 0; i < requiredLength - str.length(); i++) b.append("0");
+			return b.append(str).toString();
 		}
 	};
 	
