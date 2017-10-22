@@ -310,7 +310,7 @@ public abstract class SettingsManager {
 	 * @return the setting accepting the given properties
 	 */
 	private <T> Set<Setting<Map<String, T>>> getMappedSettingsAccepting(String settingName, final Map<SettingsProperty, String> props, final Class<T> classOfMapValue) {
-		Set<Setting<Map<String, T>>> filtered = Sets.newHashSet(); 
+		Set<Setting<Map<String, T>>> filtered = Sets.newHashSet();
 		
 		for (Setting<?> setting : getSettings().get(settingName)) {
 			if (!(setting.getValue() instanceof Map<?, ?>)) continue;

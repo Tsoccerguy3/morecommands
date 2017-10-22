@@ -18,6 +18,7 @@ import com.mrnobody.morecommands.command.StandardCommand;
 import com.mrnobody.morecommands.network.PacketDispatcher;
 import com.mrnobody.morecommands.patch.PatchList;
 import com.mrnobody.morecommands.patch.PatchManager.AppliedPatches;
+import com.mrnobody.morecommands.settings.ClientPlayerSettings;
 import com.mrnobody.morecommands.settings.GlobalSettings;
 import com.mrnobody.morecommands.settings.MoreCommandsConfig;
 import com.mrnobody.morecommands.settings.PlayerSettings;

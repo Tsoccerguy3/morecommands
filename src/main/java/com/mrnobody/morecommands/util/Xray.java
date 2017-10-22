@@ -240,7 +240,7 @@ public final class Xray implements Runnable, TwoEventListener<TickEvent, RenderW
 		GL11.glLineWidth(1f);
 		BufferBuilder buf = Tessellator.getInstance().getBuffer();
 		
-		List<BlockPosition> temp = new ArrayList();
+		List<BlockPosition> temp = new ArrayList<BlockPosition>();
 		temp.addAll(this.renderBlocks);
 		
 		for (BlockPosition b : temp){
@@ -298,6 +298,15 @@ public final class Xray implements Runnable, TwoEventListener<TickEvent, RenderW
 	}
 	
 	/**
+	 * Resets the xray radius to the default value
+	 * and disables xray for all blocks and resets their color to the default value
+	 */
+	public void reset() {
+		this.blockRadius = DEFAULT_RADIUS;
+		for (BlockSettings settings : this.blockSettings.values()) {settings.draw = false; settings.color = Color.WHITE;}
+	}
+	
+	/**
 	 * Changes the settings for a block
 	 * 
 	 * @param block the block for which the settings are to be changed
@@ -305,7 +314,7 @@ public final class Xray implements Runnable, TwoEventListener<TickEvent, RenderW
 	 * @param color the xray color for this block
 	 */
 	public void changeBlockSettings(Block block, boolean draw, Color color) {
-		BlockSettings settings = blockSettings.get(block);
+		BlockSettings settings = this.blockSettings.get(block);
 		if (settings != null) {settings.draw = draw; settings.color = color;}
 	}
 	
@@ -316,7 +325,7 @@ public final class Xray implements Runnable, TwoEventListener<TickEvent, RenderW
 	 * @param color the xray color for this block
 	 */
 	public void changeBlockSettings(Block block, Color color) {
-		BlockSettings settings = blockSettings.get(block);
+		BlockSettings settings = this.blockSettings.get(block);
 		if (settings != null) settings.color = color;
 	}
 	
