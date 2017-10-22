@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import com.mojang.realmsclient.gui.ChatFormatting;
 import com.mrnobody.morecommands.asm.transform.TransformTextureCompass;
 import com.mrnobody.morecommands.asm.transform.TransformTextureCompass.CompassTargetCallBack;
 import com.mrnobody.morecommands.command.ClientCommand;
@@ -19,6 +20,8 @@ import com.mrnobody.morecommands.event.EventHandler;
 import com.mrnobody.morecommands.event.ItemStackChangeSizeEvent;
 import com.mrnobody.morecommands.event.Listeners.EventListener;
 import com.mrnobody.morecommands.network.PacketDispatcher.BlockUpdateType;
+import com.mrnobody.morecommands.network.PacketDispatcher.XrayAction;
+import com.mrnobody.morecommands.network.PacketDispatcher.XrayPresetAction;
 import com.mrnobody.morecommands.patch.PatchEntityPlayerSP.EntityPlayerSP;
 import com.mrnobody.morecommands.patch.PatchEntityPlayerSP.PlayerControllerMP;
 import com.mrnobody.morecommands.patch.PatchList;
@@ -40,7 +43,6 @@ import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
 import net.minecraft.item.Item;
 import net.minecraft.util.BlockPos;
-import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.world.World;
 import net.minecraftforge.client.ClientCommandHandler;
 
@@ -61,8 +63,6 @@ public class PacketHandlerClient {
 	private EntityPlayerSP freecamOriginalPlayer;
 	private boolean prevIsFlying;
 	private boolean prevAllowFlying;
-	private float prevFlySpeed;
-	private float prevWalkSpeed;
 	private boolean prevNoclip;
 	
 	private EntityPlayerSP freezecamOriginalPlayer;
@@ -100,7 +100,7 @@ public class PacketHandlerClient {
 	
 	public PacketHandlerClient() {
 		TransformTextureCompass.setCompassTargetCallback(this.compassTargetCallback);
-		EventHandler.DAMAGE_ITEM.register(this.onItemDamageListener);
+		EventHandler.DAMAGE_ITEM.register(onItemDamageListener);
 	}
 	
 	/**
@@ -304,10 +304,41 @@ public class PacketHandlerClient {
 	}
 	
 	/**
-	 * Shows the xray config
+	 * Shows the xray config/Toggles xray/Resets xray
 	 */
-	public void handleXray() {
-		Xray.getXray().showConfig();
+	public void handleXrayAction(XrayAction action) {
+		switch (action) {
+			case TOGGLE: 
+				Xray.getXray().changeXraySettings(!Xray.getXray().isEnabled());
+				(new CommandSender(Minecraft.getMinecraft().thePlayer)).sendLangfileMessage(Xray.getXray().isEnabled() ? "command.xray.enabled" : "command.xray.disabled");
+				break;
+			case SHOW_CONF: 
+				Xray.getXray().showConfig(); 
+				break;
+			case RESET: 
+				Xray.getXray().reset();
+				(new CommandSender(Minecraft.getMinecraft().thePlayer)).sendLangfileMessage("command.xray.reseted");
+				break;
+			default: break;
+		}
+	}
+	
+	/**
+	 * Enables/Disables xray
+	 * @param xrayEnabled whether to enable or disable xray
+	 */
+	public void handleXrayChangeSettings(boolean xrayEnabled) {
+		Xray.getXray().changeXraySettings(xrayEnabled);
+		(new CommandSender(Minecraft.getMinecraft().thePlayer)).sendLangfileMessage(xrayEnabled ? "command.xray.enabled" : "command.xray.disabled");
+	}
+	
+	/**
+	 * Sets the xray radius
+	 * @param blockRadius the xray block radius
+	 */
+	public void handleXrayChangeSettings(int blockRadius) {
+		Xray.getXray().changeXraySettings(blockRadius);
+		(new CommandSender(Minecraft.getMinecraft().thePlayer)).sendLangfileMessage("command.xray.radiusSet", blockRadius);
 	}
 	
 	/**
@@ -315,46 +346,59 @@ public class PacketHandlerClient {
 	 * @param xrayEnabled whether to enable or disable xray
 	 * @param blockRadius the xray block radius
 	 */
-	public void handleXray(boolean xrayEnabled, int blockRadius) {
-		Xray.getXray().changeXraySettings(blockRadius, xrayEnabled);
+	public void handleXrayChangeSettings(boolean xrayEnabled, int blockRadius) {
+		handleXrayChangeSettings(xrayEnabled);
+		handleXrayChangeSettings(blockRadius);
 	}
 	
 	/**
-	 * loads/saves an xray setting
-	 * @param load true to load a setting, false to save a setting
-	 * @param setting the setting name to load/save
+	 * loads/saves an xray preset
+	 * @param action the action to perform on a presets
+	 * @param preset the preset name
 	 */
-	public void handleXray(boolean load, String setting) {
+	public void handleXrayChangePreset(XrayPresetAction action, String preset) {
 		ClientPlayerSettings settings = MoreCommands.getEntityProperties(ClientPlayerSettings.class, PlayerSettings.MORECOMMANDS_IDENTIFIER, Minecraft.getMinecraft().thePlayer);
 		if (settings == null) return;
 		
-		if (load) {
-			if (settings.xray.containsKey(setting)) {
-				int radius = settings.xray.get(setting).radius;
-				Map<Block, Integer> colors = settings.xray.get(setting).colors;
-				
-				for (Block b : Xray.getXray().getAllBlocks()) Xray.getXray().changeBlockSettings(b, false);
-				
-				for (Map.Entry<Block, Integer> entry : colors.entrySet())
-					Xray.getXray().changeBlockSettings(entry.getKey(), true, new Color(entry.getValue()));
-				
-				Xray.getXray().changeXraySettings(radius);
-				(new CommandSender(Minecraft.getMinecraft().thePlayer)).sendLangfileMessage("command.xray.loaded", setting);
-			}
-			else (new CommandSender(Minecraft.getMinecraft().thePlayer)).sendLangfileMessage("command.xray.notFound", EnumChatFormatting.RED, setting);
-		}
-		else {
-			Map<Block, Integer> colors = new HashMap<Block, Integer>();
-			
-			for (Block b : Xray.getXray().getAllBlocks()) {
-				if (Xray.getXray().drawBlock(b)) {
-					Color c = Xray.getXray().getColor(b);
-					colors.put(b, (c.getBlue() << 16) | (c.getGreen() << 8) | c.getRed());
+		switch (action) {
+			case LOAD:
+			case LOAD_COMBINED:
+				if (settings.xray.containsKey(preset)) {
+					int radius = settings.xray.get(preset).radius;
+					Map<Block, Integer> colors = settings.xray.get(preset).colors;
+					
+					if (action != XrayPresetAction.LOAD_COMBINED)
+						Xray.getXray().reset();
+					
+					for (Map.Entry<Block, Integer> entry : colors.entrySet())
+						Xray.getXray().changeBlockSettings(entry.getKey(), true, new Color(entry.getValue()));
+					
+					Xray.getXray().changeXraySettings(radius);
+					(new CommandSender(Minecraft.getMinecraft().thePlayer)).sendLangfileMessage("command.xray.loaded", preset);
 				}
-			}
-			
-			settings.xray.put(setting, new XrayInfo(Xray.getXray().getRadius(), colors));
-			(new CommandSender(Minecraft.getMinecraft().thePlayer)).sendLangfileMessage("command.xray.saved", setting);
+				else (new CommandSender(Minecraft.getMinecraft().thePlayer)).sendLangfileMessage("command.xray.notFound", ChatFormatting.RED, preset);
+				
+				break;
+			case SAVE:
+				Map<Block, Integer> colors = new HashMap<Block, Integer>();
+				
+				for (Block b : Xray.getXray().getAllBlocks()) {
+					if (Xray.getXray().drawBlock(b)) {
+						Color c = Xray.getXray().getColor(b);
+						colors.put(b, (c.getBlue() << 0) | (c.getGreen() << 8) | (c.getRed() << 16));
+					}
+				}
+				
+				settings.xray.put(preset, new XrayInfo(Xray.getXray().getRadius(), colors));
+				(new CommandSender(Minecraft.getMinecraft().thePlayer)).sendLangfileMessage("command.xray.saved", preset);
+				
+				break;
+			case DELETE:
+				settings.xray.remove(preset);
+				(new CommandSender(Minecraft.getMinecraft().thePlayer)).sendLangfileMessage("command.xray.deleted", preset);
+				break;
+			default:
+				break;
 		}
 	}
 
@@ -437,9 +481,9 @@ public class PacketHandlerClient {
 	 */
 	public void setInfiniteitems(boolean infiniteitems) {
 		if (infiniteitems)
-			EventHandler.ITEMSTACK_CHANGE_SIZE.register(this.onStackSizeChangeListener);
+			EventHandler.ITEMSTACK_CHANGE_SIZE.register(onStackSizeChangeListener);
 		else
-			EventHandler.ITEMSTACK_CHANGE_SIZE.unregister(this.onStackSizeChangeListener);
+			EventHandler.ITEMSTACK_CHANGE_SIZE.unregister(onStackSizeChangeListener);
 	}
 	
 	/**
