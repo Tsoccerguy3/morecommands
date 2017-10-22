@@ -8,11 +8,9 @@ import org.lwjgl.opengl.GL12;
 
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.gui.GuiSlot;
-import net.minecraft.client.renderer.RenderItem;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -37,88 +35,92 @@ public class XrayConfGui extends GuiScreen {
 		 * @author MrNobody98
 		 */
 		public class GuiSlider extends GuiButton {
+			private float sliderValue;
+			private final float sliderMultiplier;
+			private boolean dragging;
+			private final String label;
 
-			public float sliderValue = 1.0F;
-			public float sliderMaxValue = 1.0F;
-			public boolean dragging = false;
-			public String label;
-
-			public GuiSlider(int id, int x, int y, String label, float startingValue, float maxValue) {
+			public GuiSlider(int id, int x, int y, String label, float sliderStart, float sliderMultiplier) {
 				super(id, x, y, 150, 20, label);
 				this.label = label;
-	        	this.sliderValue = startingValue;
-	        	this.sliderMaxValue = maxValue;
+	        	this.sliderValue = sliderStart;
+	        	this.sliderMultiplier = sliderMultiplier;
 			}
-
-			public int getHoverState(boolean par1) {
+			
+			@Override
+			public int getHoverState(boolean mouseOver) {
 				return 0;
 			}
-
-			protected void mouseDragged(Minecraft par1Minecraft, int par2, int par3) {
+			
+			@Override
+			protected void mouseDragged(Minecraft mc, int mouseX, int mouseY) {
 	            	if (this.dragging) {
-	            		this.sliderValue = (float) (par2 - (this.xPosition + 4)) / (float) (this.width - 8);
-
-	            		if (this.sliderValue < 0.0F) {
+	            		this.sliderValue = (float) (mouseX - (this.xPosition + 4)) / (float) (this.width - 8);
+	            		
+	            		if (this.sliderValue < 0.0F)
 	            			this.sliderValue = 0.0F;
-	            		}
-
-	            		if (this.sliderValue > 1.0F) {
+	            		
+	            		if (this.sliderValue > 1.0F)
 	            			this.sliderValue = 1.0F;
-	            		}
-
 	            	}
-
-	            	this.displayString = label + ": " + (int) (sliderValue * sliderMaxValue);
+	            	
+	            	this.displayString = this.label + ": " + (int) (this.sliderValue * this.sliderMultiplier);
 	            	GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
 	            	this.drawTexturedModalRect(this.xPosition + (int) (this.sliderValue * (float) (this.width - 8)), this.yPosition, 0, 66, 4, 20);
 	            	this.drawTexturedModalRect(this.xPosition + (int) (this.sliderValue * (float) (this.width - 8)) + 4, this.yPosition, 196, 66, 4, 20);
 			}
-
-			public boolean mousePressed(Minecraft par1Minecraft, int par2, int par3) {
-				if (super.mousePressed(par1Minecraft, par2, par3)) {
-					this.sliderValue = (float) (par2 - (this.xPosition + 4)) / (float) (this.width - 8);
-
-					if (this.sliderValue < 0.0F) {
-						this.sliderValue = 0.0F;
-					}
-
-					if (this.sliderValue > 1.0F) {
-						this.sliderValue = 1.0F;
-					}
-
-					this.dragging = true;
+			
+			@Override
+			public boolean mousePressed(Minecraft mc, int mouseX, int mouseY) {
+				if (super.mousePressed(mc, mouseX, mouseY)) {
+					this.sliderValue = (float) (mouseX - (this.xPosition + 4)) / (float) (this.width - 8);
+					
+            		if (this.sliderValue < 0.0F)
+            			this.sliderValue = 0.0F;
+            		
+            		if (this.sliderValue > 1.0F)
+            			this.sliderValue = 1.0F;
+            		
+            		this.dragging = true;
 					return true;
 				} else {
 					return false;
 				}
 			}
-
-			public void mouseReleased(int par1, int par2) {
+			
+			@Override
+			public void mouseReleased(int mouseX, int mouseY) {
 				this.dragging = false;
 			}
 		}
 		
-		GuiSlider redSlider;
-		GuiSlider greenSlider;
-		GuiSlider blueSlider;
-		GuiButton addButton;
-		GuiCheckBox enableBox;
+		private GuiSlider redSlider;
+		private GuiSlider greenSlider;
+		private GuiSlider blueSlider;
+		private GuiButton addButton;
+		private GuiCheckBox enableBox;
 		
-		boolean isEnabled;
+		private boolean isEnabled;
+		private final float startR, startG, startB;
 		
-		public GuiEdit(boolean isEnabled) {this.isEnabled = isEnabled;}
-	
+		public GuiEdit(boolean isEnabled, float startR, float startG, float startB) {
+			this.isEnabled = isEnabled;
+			this.startR = startR;
+			this.startG = startG;
+			this.startB = startB;
+		}
+		
 		@Override
 		public void initGui() {
-			this.redSlider = new GuiSlider(1, this.width / 2 - 100, this.height / 2 - 40, "Red", 0, 255 );
-			this.greenSlider = new GuiSlider(2, this.width / 2 - 100, this.height / 2 - 20, "Green", 0, 255 );
-			this.blueSlider = new GuiSlider(3, this.width / 2 - 100, this.height / 2 -  0, "Blue", 0, 255 );
-			this.enableBox = new GuiCheckBox(4, this.width / 2 - 100, this.height / 2 - 60, "Enable Xray for this block", this.isEnabled);
-			this.addButton = new GuiButton(98, this.width - 100, this.height - 20, 100, 20, "Apply");
+			this.redSlider   = new GuiSlider(1, this.width / 2 - 100, this.height / 2 - 40, "Red",   this.startR, 255);
+			this.greenSlider = new GuiSlider(2, this.width / 2 - 100, this.height / 2 - 20, "Green", this.startG, 255);
+			this.blueSlider  = new GuiSlider(3, this.width / 2 - 100, this.height / 2 -  0, "Blue",  this.startB, 255);
+			this.enableBox   = new GuiCheckBox(4, this.width / 2 - 100, this.height / 2 - 60, "Enable Xray for this block", this.isEnabled);
+			this.addButton   = new GuiButton(98, this.width - 100, this.height - 20, 100, 20, "Apply");
 			
-			this.redSlider.enabled = false;
+			this.redSlider.enabled   = false;
 			this.greenSlider.enabled = false;
-			this.blueSlider.enabled = false;
+			this.blueSlider.enabled  = false;
 			
 			this.buttonList.add(new GuiButton(99, 2, this.height - 20, 100, 20, "Cancel"));
 			this.buttonList.add(this.addButton);
@@ -126,37 +128,46 @@ public class XrayConfGui extends GuiScreen {
 			this.buttonList.add(this.greenSlider);
 			this.buttonList.add(this.blueSlider);
 			this.buttonList.add(this.enableBox);
-			
-			this.redSlider.sliderValue = 0.0F;
-			this.greenSlider.sliderValue = 1.0F;
-			this.blueSlider.sliderValue = 0.0F;
 		}
-	
+		
 		@Override
 		public void actionPerformed(GuiButton button) {
-			if (button.id == 4) {boolean flag = ((GuiCheckBox) button).isChecked(); this.redSlider.enabled = flag; this.greenSlider.enabled = flag; this.blueSlider.enabled = flag;}
-			if (button.id == 98) {XrayConfGui.this.setBlockInfo(redSlider.sliderValue, greenSlider.sliderValue, blueSlider.sliderValue, this.enableBox.isChecked()); mc.player.closeScreen();}
-			else if (button.id == 99) mc.player.closeScreen();
+			switch (button.id) {
+				case 4:
+					this.redSlider.enabled   = this.enableBox.isChecked(); 
+					this.greenSlider.enabled = this.enableBox.isChecked(); 
+					this.blueSlider.enabled  = this.enableBox.isChecked();
+					break;
+				case 98:
+					XrayConfGui.this.setBlockInfo(this.redSlider.sliderValue, this.greenSlider.sliderValue, 
+													this.blueSlider.sliderValue, this.enableBox.isChecked());
+					//omitting "break" intentionally to fall through to the next case to close the screen
+				case 99:
+					this.mc.player.closeScreen();
+					break;
+				default:
+					break;
+			}
 		}
-	
+		
 		@Override
-		public void drawScreen(int x, int y, float f){
+		public void drawScreen(int mouseX, int mouseY, float partialTicks){
 			drawDefaultBackground();
-			super.drawScreen(x, y, f);
+			super.drawScreen(mouseX, mouseY, partialTicks);
 			
 			GL11.glDisable(GL11.GL_TEXTURE_2D);
 			GL11.glEnable(GL11.GL_BLEND);
 			GL11.glDepthMask(false);
 			GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
-		
+			
 			GL11.glBegin(GL11.GL_QUADS);
-			GL11.glColor3f(redSlider.sliderValue, greenSlider.sliderValue, blueSlider.sliderValue);
-			GL11.glVertex2d(width / 2 + 50, height / 2 - 40);
-			GL11.glVertex2d(width / 2 + 50, height / 2 + 20);
-			GL11.glVertex2d(width / 2 + 112, height / 2 + 20);
-			GL11.glVertex2d(width / 2 + 112, height / 2 - 40);
+			GL11.glColor3f(this.redSlider.sliderValue, this.greenSlider.sliderValue, this.blueSlider.sliderValue);
+			GL11.glVertex2d(this.width / 2 + 50, this.height / 2 - 40);
+			GL11.glVertex2d(this.width / 2 + 50, this.height / 2 + 20);
+			GL11.glVertex2d(this.width / 2 + 112, this.height / 2 + 20);
+			GL11.glVertex2d(this.width / 2 + 112, this.height / 2 - 40);
 			GL11.glEnd();
-		
+			
 			GL11.glDepthMask(true);
 			GL11.glDisable(GL11.GL_BLEND);
 			GL11.glEnable(GL11.GL_TEXTURE_2D);
@@ -170,29 +181,27 @@ public class XrayConfGui extends GuiScreen {
 	 *
 	 */
 	public class GuiList extends GuiSlot {
-		private RenderItem itemRender = Minecraft.getMinecraft().getRenderItem();
-		private FontRenderer fontRenderer;
-		
 		public GuiList() {
-			super(XrayConfGui.this.mc, XrayConfGui.this.width, XrayConfGui.this.height, 30, XrayConfGui.this.height - 30, XrayConfGui.this.mc.fontRendererObj.FONT_HEIGHT + 10);
-			this.fontRenderer = XrayConfGui.this.mc.fontRendererObj;
+			super(XrayConfGui.this.mc, XrayConfGui.this.width, XrayConfGui.this.height, 30, 
+					XrayConfGui.this.height - 30, XrayConfGui.this.mc.fontRendererObj.FONT_HEIGHT + 10);
 		}
-
+		
 		@Override
 		protected int getSize() {
 			return XrayConfGui.this.blockList.length;
 		}
-
+		
 		@Override
-		protected void elementClicked(int index, boolean doubleClick, int p_148144_3_, int p_148144_4_) {
-			XrayConfGui.this.elementSelected = index;
+		protected void elementClicked(int slotIndex, boolean isDoubleClick, int mouseX, int mouseY) {
+			XrayConfGui.this.elementSelected = slotIndex;
 			boolean buttonsEnabled = XrayConfGui.this.elementSelected >= 0 && XrayConfGui.this.elementSelected < this.getSize();
 			XrayConfGui.this.guiButtonConfigure.enabled = buttonsEnabled;
 			
-			if (doubleClick && buttonsEnabled)
-				XrayConfGui.this.loadConfigGUI(XrayConfGui.this.xray.drawBlock(XrayConfGui.this.blockList[XrayConfGui.this.elementSelected]));
+			if (isDoubleClick && buttonsEnabled)
+				XrayConfGui.this.loadConfigGUI(XrayConfGui.this.xray.drawBlock(XrayConfGui.this.blockList[XrayConfGui.this.elementSelected]) ? 
+						XrayConfGui.this.xray.getColor(XrayConfGui.this.blockList[XrayConfGui.this.elementSelected]) : null);
 		}
-
+		
 		@Override
 		protected boolean isSelected(int index) {
 			return index == XrayConfGui.this.elementSelected;
@@ -200,9 +209,9 @@ public class XrayConfGui extends GuiScreen {
 		
 		@Override
 		protected int getContentHeight() {
-			return XrayConfGui.this.blockList.length * (this.fontRenderer.FONT_HEIGHT + 10);
+			return XrayConfGui.this.blockList.length * (XrayConfGui.this.mc.fontRendererObj.FONT_HEIGHT + 10);
 		}
-
+		
 		@Override
 		protected void drawBackground() {
 			XrayConfGui.this.drawDefaultBackground();
@@ -210,22 +219,23 @@ public class XrayConfGui extends GuiScreen {
 		
 		@Override
 		protected void drawContainerBackground(Tessellator tessellator) {}
-
+		
 		@Override
-		protected void drawSlot(int index, int left, int top, int p_180791_4_, int p_180791_5_, int p_180791_6_) {
+		protected void drawSlot(int index, int left, int top, int slotHeight, int mouseX, int mouseY) {
 			String blockName = XrayConfGui.this.blockList[index].getLocalizedName();
 			Item blockItem = Item.getItemFromBlock(XrayConfGui.this.blockList[index]);
 			
 			if (blockItem != null) {
-		        itemRender.zLevel = 100.0F;
-		        GL11.glEnable(GL11.GL_LIGHTING);
-		        GL11.glEnable(GL12.GL_RESCALE_NORMAL);
-				this.itemRender.renderItemAndEffectIntoGUI(new ItemStack(blockItem), left, top);
-				//this.itemRender.renderItemOverlayIntoGUI(this.fontRenderer, new ItemStack(blockItem), left, top, blockItem.getUnlocalizedName());
+				XrayConfGui.this.mc.getRenderItem().zLevel = 100F;
+				GL11.glEnable(GL11.GL_LIGHTING);
+				GL11.glEnable(GL12.GL_RESCALE_NORMAL);
+				XrayConfGui.this.mc.getRenderItem().renderItemAndEffectIntoGUI(new ItemStack(blockItem), left, top);
+				//XrayConfGui.this.mc.getRenderItem().renderItemOverlayIntoGUI(this.fontRendererObjObj, new ItemStack(blockItem), left, top, blockItem.getUnlocalizedName());
 		        GL11.glDisable(GL11.GL_LIGHTING);
-		        itemRender.zLevel = 0.0F;
+		        XrayConfGui.this.mc.getRenderItem().zLevel = 0.0F;
 			}
-			XrayConfGui.this.drawString(this.fontRenderer, blockName + " - " + (XrayConfGui.this.xray.drawBlock(XrayConfGui.this.blockList[index]) ? "ENABLED" : "DISABLED"), left + 20, top + 3, 16777215);
+			
+			XrayConfGui.this.drawString(XrayConfGui.this.mc.fontRendererObj, blockName + " - " + (XrayConfGui.this.xray.drawBlock(XrayConfGui.this.blockList[index]) ? "ENABLED" : "DISABLED"), left + 20, top + 3, 0xFFFFFF);
 		}
 	}
 	
@@ -256,30 +266,37 @@ public class XrayConfGui extends GuiScreen {
 	@Override
 	protected void actionPerformed(GuiButton button) {
 		if (button.enabled) {
-			if (button.id == 1) {
-				if (this.blockList[this.elementSelected] != null)
-					this.loadConfigGUI(this.xray.drawBlock(this.blockList[this.elementSelected]));
-			}
-			else if (button.id == 0) {
-				this.mc.player.closeScreen();
+			switch (button.id) {
+				case 1:
+					if (this.blockList[this.elementSelected] != null)
+						this.loadConfigGUI(this.xray.drawBlock(this.blockList[this.elementSelected]) ? 
+											this.xray.getColor(this.blockList[this.elementSelected]) : null);
+					break;
+				case 0:
+					this.mc.player.closeScreen();
+					break;
+				default:
+					break;
 			}
 		}
 	}
 	
 	@Override
-	public void drawScreen(int p_73863_1_, int p_73863_2_, float p_73863_3_) {
-		this.guiList.drawScreen(p_73863_1_, p_73863_2_, p_73863_3_);
-        this.drawCenteredString(this.fontRendererObj, this.heading, this.width / 2, 10, 16777215);
-        super.drawScreen(p_73863_1_, p_73863_2_, p_73863_3_);
+	public void drawScreen(int mouseX, int mouseY, float partialTicks) {
+		this.guiList.drawScreen(mouseX, mouseY, partialTicks);
+		this.drawCenteredString(this.fontRendererObj, this.heading, this.width / 2, 10, 0xFFFFFF);
+		super.drawScreen(mouseX, mouseY, partialTicks);
 	}
 	
-    public void handleMouseInput() throws IOException {
-    	super.handleMouseInput();
-    	this.guiList.handleMouseInput();
+	@Override
+	public void handleMouseInput() throws IOException {
+		super.handleMouseInput();
+		this.guiList.handleMouseInput();
 	}
 	
-	public void loadConfigGUI(boolean isEnabled) {
-		this.mc.displayGuiScreen(new GuiEdit(isEnabled));
+	public void loadConfigGUI(Color startColor) {
+		this.mc.displayGuiScreen(new GuiEdit(startColor != null, startColor != null ? startColor.getRed() / 255F : 1F,
+				startColor != null ? startColor.getGreen() / 255F : 1F, startColor != null ? startColor.getBlue() / 255F : 1F));
 	}
 	
 	public void setBlockInfo(float red, float green, float blue, boolean draw) {

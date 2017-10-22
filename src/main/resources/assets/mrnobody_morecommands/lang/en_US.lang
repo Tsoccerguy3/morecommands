@@ -1234,10 +1234,13 @@ command.weather.notInSight=No Block in sight
 
 command.xray.description=Toggles and configures xray
 command.xray.example=/xray config
-command.xray.syntax=/xray [ENABLE|DISABLE|CONFIG|LOAD <CONFIG>|SAVE <CONFIG>]
+command.xray.syntax=/xray [ENABLE|DISABLE|CONFIG|LOAD <PRESET>|LOAD_COMBINED <PRESET>|SAVE <PRESET>|DELETE <PRESET>|RESET]
 command.xray.videoURL=youtu.be/ObXHBs9jpoo
-command.xray.enabled=Xray enabled
-command.xray.disabled=Xray disabled
 command.xray.notFound=Xray setting "%s" not found
 command.xray.loaded=Xray setting "%s" loaded
 command.xray.saved=Xray setting "%s" saved
+command.xray.deleted=Xray setting "%s" deleted
+command.xray.enabled=Xray enabled
+command.xray.disabled=Xray disabled
+command.xray.reseted=Xray reseted
+command.xray.radiusSet=Xray radius set to %d

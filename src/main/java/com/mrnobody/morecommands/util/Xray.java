@@ -24,7 +24,6 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraftforge.client.event.RenderWorldLastEvent;
 import net.minecraftforge.event.world.WorldEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
-import net.minecraftforge.fml.common.registry.GameData;
 
 /**
  * The class controlling xray.
@@ -114,7 +113,7 @@ public final class Xray implements Runnable, TwoEventListener<TickEvent, RenderW
 		
 		ImmutableMap.Builder<Block, BlockSettings> builder = ImmutableMap.builder();
 		Block block;
-		Iterator<Block> blocks = GameData.getBlockRegistry().iterator();
+		Iterator<Block> blocks = Block.REGISTRY.iterator();
 		
 		while (blocks.hasNext()) {
 			block = blocks.next();
@@ -241,7 +240,7 @@ public final class Xray implements Runnable, TwoEventListener<TickEvent, RenderW
 		GL11.glLineWidth(1f);
 		VertexBuffer buf = Tessellator.getInstance().getBuffer();
 		
-		List<BlockPosition> temp = new ArrayList();
+		List<BlockPosition> temp = new ArrayList<BlockPosition>();
 		temp.addAll(this.renderBlocks);
 		
 		for (BlockPosition b : temp){
@@ -296,6 +295,15 @@ public final class Xray implements Runnable, TwoEventListener<TickEvent, RenderW
 	 */
 	public void showConfig() {
 		this.confGUI.displayGUI();
+	}
+	
+	/**
+	 * Resets the xray radius to the default value
+	 * and disables xray for all blocks and resets their color to the default value
+	 */
+	public void reset() {
+		this.blockRadius = DEFAULT_RADIUS;
+		for (BlockSettings settings : this.blockSettings.values()) {settings.draw = false; settings.color = Color.WHITE;}
 	}
 	
 	/**
