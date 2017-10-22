@@ -3,7 +3,6 @@ package com.mrnobody.morecommands.core;
 import java.io.File;
 import java.lang.reflect.Constructor;
 import java.util.List;
-import java.util.Map;
 
 import com.mrnobody.morecommands.command.ClientCommand;
 import com.mrnobody.morecommands.command.MultipleCommands;
@@ -12,14 +11,13 @@ import com.mrnobody.morecommands.core.MoreCommands.ServerType;
 import com.mrnobody.morecommands.event.EventHandler;
 import com.mrnobody.morecommands.settings.ClientPlayerSettings;
 import com.mrnobody.morecommands.settings.JsonSettingsManager;
-import com.mrnobody.morecommands.settings.PlayerSettings;
 import com.mrnobody.morecommands.settings.SettingsManager;
-import com.mrnobody.morecommands.util.DummyCommand;
 import com.mrnobody.morecommands.util.Reference;
 
 import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.ModContainer;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
+import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.event.FMLServerStoppingEvent;
 import cpw.mods.fml.common.gameevent.PlayerEvent.PlayerLoggedOutEvent;
 import net.minecraft.client.Minecraft;
@@ -54,6 +52,12 @@ public class ClientProxy extends CommonProxy {
 	@Override
 	protected CommonHandler newHandler() {
 		return new ClientHandler();
+	}
+	
+	@Override
+	protected void preInit(FMLPreInitializationEvent event) {
+		ClientPlayerSettings.getInstance(); //load class to run static initializer
+		super.preInit(event);
 	}
 
 	@Override

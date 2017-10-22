@@ -11,7 +11,6 @@ import com.google.common.collect.ImmutableMap;
 import com.mrnobody.morecommands.event.EventHandler;
 import com.mrnobody.morecommands.event.Listeners.EventListener;
 import com.mrnobody.morecommands.event.Listeners.TwoEventListener;
-import com.mrnobody.morecommands.settings.GlobalSettings;
 import com.mrnobody.morecommands.settings.MoreCommandsConfig;
 
 import cpw.mods.fml.common.gameevent.TickEvent;
@@ -280,6 +279,15 @@ public final class Xray implements Runnable, TwoEventListener<TickEvent, RenderW
 	 */
 	public void showConfig() {
 		this.confGUI.displayGUI();
+	}
+	
+	/**
+	 * Resets the xray radius to the default value
+	 * and disables xray for all blocks and resets their color to the default value
+	 */
+	public void reset() {
+		this.blockRadius = DEFAULT_RADIUS;
+		for (BlockSettings settings : this.blockSettings.values()) {settings.draw = false; settings.color = Color.WHITE;}
 	}
 	
 	/**

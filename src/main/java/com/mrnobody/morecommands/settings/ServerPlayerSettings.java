@@ -75,10 +75,6 @@ public final class ServerPlayerSettings extends PlayerSettings {
 	public boolean freecam = false;
 	/** Whether to enable/disable freezecam */
 	public boolean freeezecam = false;
-	/** The current xray block radius */
-	public int xrayBlockRadius = 32;
-	/** Whether to xray is enabled/disabled */
-	public boolean xrayEnabled = false;
 	/** The current block break speed */
 	public float breakspeed = -1F;
 	/** Whether to enable/disable infinite items */
@@ -390,8 +386,6 @@ public final class ServerPlayerSettings extends PlayerSettings {
 			this.waterdamage = settings.waterdamage;
 			this.waypointCompassTarget = settings.waypointCompassTarget;
 			this.waypoints = settings.waypoints;
-			this.xrayBlockRadius = settings.xrayBlockRadius;
-			this.xrayEnabled = settings.xrayEnabled;
 			this.textStyle = settings.textStyle;
 			this.nameStyle = settings.nameStyle;
 			this.chatChannels = settings.chatChannels;
