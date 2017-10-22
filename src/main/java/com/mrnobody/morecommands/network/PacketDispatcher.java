@@ -2,6 +2,8 @@ package com.mrnobody.morecommands.network;
 
 import com.google.common.base.Charsets;
 import com.mrnobody.morecommands.core.MoreCommands;
+import com.mrnobody.morecommands.network.PacketDispatcher.XrayAction;
+import com.mrnobody.morecommands.network.PacketDispatcher.XrayPresetAction;
 import com.mrnobody.morecommands.settings.MoreCommandsConfig;
 import com.mrnobody.morecommands.util.Reference;
 
@@ -49,9 +51,14 @@ public final class PacketDispatcher {
 	private static final byte S16ITEMDAMAGE           = 0x13;
 	private static final byte S17REMOTECOMMANDRESULT  = 0x14;
 	
-	private static final byte XRAY_SHOWCONFIG       = 0;
-	private static final byte XRAY_CHANGESETTINGS   = 1;
-	private static final byte XRAY_LOADSAVESETTINGS = 2;
+	private static final byte XRAY_EXEC_ACTION              = 0;
+	private static final byte XRAY_CHANGE_ENABLE_AND_RADIUS = 1;
+	private static final byte XRAY_CHANGEPRESET             = 2;
+	private static final byte XRAY_CHANGE_ENABLE            = 3;
+	private static final byte XRAY_CHANGE_RADIUS            = 4;
+	
+	public static enum XrayAction {TOGGLE, SHOW_CONF, RESET}
+	public static enum XrayPresetAction {SAVE, LOAD, DELETE, LOAD_COMBINED}
 	
 	/**
 	 * an enum representing a {@link Block} property to change
@@ -255,25 +262,40 @@ public final class PacketDispatcher {
 	
 	/**
 	 * Processes a S05Xray packet.
-	 * @see PacketHandlerClient#handleXray()
-	 * @see PacketHandlerClient#handleXray(boolean, int)
-	 * @see PacketHandlerClient#handleXray(boolean, String)
+	 * @see PacketHandlerClient#handleXrayAction(XrayAction)
+	 * @see PacketHandlerClient#handleXrayChangeSettings(boolean)
+	 * @see PacketHandlerClient#handleXrayChangeSettings(boolean, int)
+	 * @see PacketHandlerClient#handleXrayChangeSettings(int)
+	 * @see PacketHandlerClient#handleXrayChangePreset(XrayPresetAction, String)
 	 */
 	private void processS05Xray(ByteBuf payload) {
 		byte id = readID(payload);
+		byte ordinal;
 		
-		if (id == XRAY_SHOWCONFIG) this.packetHandlerClient.handleXray();
-		else if (id == XRAY_CHANGESETTINGS) {
-			boolean enableXray = payload.readBoolean();
-			int radius = payload.readInt();
-			
-			this.packetHandlerClient.handleXray(enableXray, radius);
-		}
-		else if (id == XRAY_LOADSAVESETTINGS) {
-			boolean load = payload.readBoolean();
-			String setting = readString(payload);
-			
-			this.packetHandlerClient.handleXray(load, setting);
+		switch (id) {
+			case XRAY_EXEC_ACTION:
+				ordinal = payload.readByte();
+				if (ordinal >= XrayAction.values().length) break;
+				
+				this.packetHandlerClient.handleXrayAction(XrayAction.values()[ordinal]);
+				break;
+			case XRAY_CHANGE_ENABLE_AND_RADIUS:
+				this.packetHandlerClient.handleXrayChangeSettings(payload.readBoolean(), payload.readInt());
+				break;
+			case XRAY_CHANGEPRESET:
+				ordinal = payload.readByte();
+				if (ordinal >= XrayPresetAction.values().length) break;
+				
+				this.packetHandlerClient.handleXrayChangePreset(XrayPresetAction.values()[ordinal], readString(payload));
+				break;
+			case XRAY_CHANGE_ENABLE:
+				this.packetHandlerClient.handleXrayChangeSettings(payload.readBoolean());
+				break;
+			case XRAY_CHANGE_RADIUS:
+				this.packetHandlerClient.handleXrayChangeSettings(payload.readInt());
+				break;
+			default:
+				break;
 		}
 	}
 	
@@ -496,14 +518,15 @@ public final class PacketDispatcher {
 	}
 	
 	/**
-	 * Sends a packet toggling xray
+	 * Sends a packet performing an xray action (toggle/reset/show config)
 	 * @param player the player who receives the packet
 	 */
-	public void sendS05Xray(EntityPlayerMP player) {
+	public void sendS05XrayAction(EntityPlayerMP player, XrayAction action) {
 	    PacketBuffer payload = new PacketBuffer(Unpooled.buffer());
 	    writeID(payload, S05XRAY);
-	    writeID(payload, XRAY_SHOWCONFIG);
+	    payload.writeByte(XRAY_EXEC_ACTION);
 	    
+	    payload.writeByte((byte) action.ordinal());
 		this.channel.sendTo(new FMLProxyPacket(payload, Reference.CHANNEL), player);
 	}
 	
@@ -513,29 +536,51 @@ public final class PacketDispatcher {
 	 * @param xrayEnabled whether to enable or disable xray
 	 * @param blockRadius the xray radius
 	 */
-	public void sendS05Xray(EntityPlayerMP player, boolean xrayEnabled, int blockRadius) {
+	public void sendS05XrayChangeSettings(EntityPlayerMP player, boolean xrayEnabled, int blockRadius) {
+		sendS05XrayChangeSettings(player, XRAY_CHANGE_ENABLE_AND_RADIUS, xrayEnabled, blockRadius);
+	}
+	
+	/**
+	 * Sends a packet enabling/disabling xray
+	 * @param player the player who receives the packet
+	 * @param xrayEnabled whether to enable or disable xray
+	 */
+	public void sendS05XrayChangeSettings(EntityPlayerMP player, boolean xrayEnabled) {
+		sendS05XrayChangeSettings(player, XRAY_CHANGE_ENABLE, xrayEnabled, -1);
+	}
+	
+	/**
+	 * Sends a packet setting the xray radius
+	 * @param player the player who receives the packet
+	 * @param blockRadius the xray radius
+	 */
+	public void sendS05XrayChangeSettings(EntityPlayerMP player, int blockRadius) {
+		sendS05XrayChangeSettings(player, XRAY_CHANGE_RADIUS, false, blockRadius);
+	}
+	
+	private void sendS05XrayChangeSettings(EntityPlayerMP player, byte action, boolean xrayEnabled, int blockRadius) {
 	    PacketBuffer payload = new PacketBuffer(Unpooled.buffer());
 	    writeID(payload, S05XRAY);
-	    writeID(payload, XRAY_CHANGESETTINGS);
+	    payload.writeByte(action);
 	    
-	    payload.writeBoolean(xrayEnabled);
-	    payload.writeInt(blockRadius);
+	    if (action == XRAY_CHANGE_ENABLE_AND_RADIUS || action == XRAY_CHANGE_ENABLE) payload.writeBoolean(xrayEnabled);
+	    if (action == XRAY_CHANGE_ENABLE_AND_RADIUS || action == XRAY_CHANGE_RADIUS) payload.writeInt(blockRadius);
 		this.channel.sendTo(new FMLProxyPacket(payload, Reference.CHANNEL), player);
 	}
 	
 	/**
-	 * Sends a packet which loads/saves an xray setting
+	 * Sends a packet which loads/saves/deletes an xray preset
 	 * @param player the player who receives the packet
-	 * @param load true to load a setting, false to save a setting
-	 * @param setting the setting name
+	 * @param action the action type (save/load/delete/load combined)
+	 * @param preset the preset name
 	 */
-	public void sendS05Xray(EntityPlayerMP player, boolean load, String setting) {
+	public void sendS05XrayChangePreset(EntityPlayerMP player, XrayPresetAction action, String preset) {
 	    PacketBuffer payload = new PacketBuffer(Unpooled.buffer());
 	    writeID(payload, S05XRAY);
-	    writeID(payload, XRAY_LOADSAVESETTINGS);
+	    payload.writeByte(XRAY_CHANGEPRESET);
 	    
-	    payload.writeBoolean(load);
-	    writeString(setting, payload);
+	    payload.writeByte((byte) action.ordinal());
+	    writeString(preset, payload);
 		this.channel.sendTo(new FMLProxyPacket(payload, Reference.CHANNEL), player);
 	}
 	

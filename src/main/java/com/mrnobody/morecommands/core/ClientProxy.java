@@ -9,6 +9,7 @@ import com.mrnobody.morecommands.command.MultipleCommands;
 import com.mrnobody.morecommands.command.StandardCommand;
 import com.mrnobody.morecommands.core.MoreCommands.ServerType;
 import com.mrnobody.morecommands.event.EventHandler;
+import com.mrnobody.morecommands.settings.ClientPlayerSettings;
 import com.mrnobody.morecommands.settings.JsonSettingsManager;
 import com.mrnobody.morecommands.settings.SettingsManager;
 import com.mrnobody.morecommands.util.Reference;
@@ -24,6 +25,7 @@ import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.ModContainer;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLServerStoppingEvent;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent.PlayerLoggedOutEvent;
 
@@ -51,6 +53,12 @@ public class ClientProxy extends CommonProxy {
 	@Override
 	protected CommonHandler newHandler() {
 		return new ClientHandler();
+	}
+	
+	@Override
+	protected void preInit(FMLPreInitializationEvent event) {
+		ClientPlayerSettings.getInstance(); //load class to run static initializer
+		super.preInit(event);
 	}
 	
 	@Override
