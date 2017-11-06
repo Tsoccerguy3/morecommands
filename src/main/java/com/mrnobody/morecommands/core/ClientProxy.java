@@ -74,19 +74,6 @@ public class ClientProxy extends CommonProxy {
 	}
 	
 	@Override
-	protected void serverStopping(FMLServerStoppingEvent event) {
-		//A PlayerLoggedOutEvent is not posted for the local player on an integrated server
-		//But in CommonPatcher.playerLogout(), the ServerPlayerSettings are saved, so we have to "post" that event manually
-		MinecraftServer server = FMLCommonHandler.instance().getMinecraftServerInstance();
-		
-		if (server != null && !server.isDedicatedServer()) {
-			for (EntityPlayerMP player : server.getPlayerList().getPlayers())
-				if (server.getServerOwner().equals(player.getName()))
-						this.handler.playerLogout(new PlayerLoggedOutEvent(player));
-		}
-	}
-	
-	@Override
 	public void registerHandlers() {
 		ModContainer container = Loader.instance().activeModContainer();
 		
