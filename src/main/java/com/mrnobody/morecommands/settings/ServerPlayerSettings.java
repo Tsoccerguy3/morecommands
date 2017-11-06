@@ -139,7 +139,7 @@ public final class ServerPlayerSettings extends PlayerSettings implements INBTSe
 	@Override
 	public void deserializeNBT(NBTTagCompound settings) {
 		MoreCommands.getProxy().ensureChatChannelsLoaded();
-		NBTTagList chatChannels = settings.getTagList(NBT_CHATCHANNELS_IDENTIFIER, NBT.TAG_LIST);
+		NBTTagList chatChannels = settings.getTagList(NBT_CHATCHANNELS_IDENTIFIER, NBT.TAG_STRING);
 		
 		if (chatChannels != null) {
 			for (int i = 0; i < chatChannels.tagCount(); i++) {
@@ -184,8 +184,8 @@ public final class ServerPlayerSettings extends PlayerSettings implements INBTSe
 			for (String ch : this.playerChannelsToSave)
 				list.appendTag(new NBTTagString(ch));
 			
-			this.playerChannelsToSave.clear();
-			this.loggedOut = false;
+			//this.playerChannelsToSave.clear();
+			//this.loggedOut = false;
 		}
 		else {
 			for (ChatChannel ch : this.chatChannels)

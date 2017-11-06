@@ -19,15 +19,11 @@ import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
-import net.minecraft.server.MinecraftServer;
 import net.minecraftforge.client.ClientCommandHandler;
-import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.ModContainer;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLServerStoppingEvent;
-import net.minecraftforge.fml.common.gameevent.PlayerEvent.PlayerLoggedOutEvent;
 
 /**
  * The proxy used for the client
@@ -71,19 +67,6 @@ public class ClientProxy extends CommonProxy {
 			this.mod.getLogger().info("Client Commands successfully registered");
 		}
 		catch (Exception ex) {this.mod.getLogger().warn("Failed to register Client Command", ex);}
-	}
-	
-	@Override
-	protected void serverStopping(FMLServerStoppingEvent event) {
-		//A PlayerLoggedOutEvent is not posted for the local player on an integrated server
-		//But in CommonPatcher.playerLogout(), the ServerPlayerSettings are saved, so we have to "post" that event manually
-		MinecraftServer server = FMLCommonHandler.instance().getMinecraftServerInstance();
-		
-		if (server != null && !server.isDedicatedServer()) {
-			for (EntityPlayerMP player : server.getPlayerList().getPlayers())
-				if (server.getServerOwner().equals(player.getName()))
-						this.handler.playerLogout(new PlayerLoggedOutEvent(player));
-		}
 	}
 	
 	@Override
