@@ -194,10 +194,10 @@ public final class ServerPlayerSettings extends PlayerSettings {
 			for (String ch : this.playerChannelsToSave)
 				list.appendTag(new NBTTagString(ch));
 			
-			this.playerChannelsToSave.clear();
 			nbt.setTag(NBT_CHATCHANNELS_IDENTIFIER, list);
 			
-			this.loggedOut = false;
+			//this.playerChannelsToSave.clear();
+			//this.loggedOut = false;
 		}
 		else {
 			NBTTagList list = new NBTTagList();
