@@ -1,0 +1,653 @@
+Symbol range map extraction starting
+Processing 217 files
+startProcessing "com\mrnobody\morecommands\asm\ASMNames.java" md5: 9d50e25c3fd3b6f18bac38a12d9b55f7
+endProcessing "com\mrnobody\morecommands\asm\ASMNames.java"
+
+startProcessing "com\mrnobody\morecommands\asm\MoreCommandsLoadingPlugin.java" md5: bdc22ee02311e7c0116b96ca60b623aa
+endProcessing "com\mrnobody\morecommands\asm\MoreCommandsLoadingPlugin.java"
+
+startProcessing "com\mrnobody\morecommands\asm\NodeTransformer.java" md5: b8b48e9896494580c841d72f1ddf05a1
+endProcessing "com\mrnobody\morecommands\asm\NodeTransformer.java"
+
+startProcessing "com\mrnobody\morecommands\asm\Transformer.java" md5: ee6a3e521959dfac64c59b10ca255825
+endProcessing "com\mrnobody\morecommands\asm\Transformer.java"
+
+startProcessing "com\mrnobody\morecommands\asm\WriterTransformer.java" md5: 6663d8ede6f5ce02af32c540abb8c4f5
+endProcessing "com\mrnobody\morecommands\asm\WriterTransformer.java"
+
+startProcessing "com\mrnobody\morecommands\asm\transform\TransformBlockRailBase.java" md5: 4a857b0fe0f9a93e188c1b1f74bc3e26
+endProcessing "com\mrnobody\morecommands\asm\transform\TransformBlockRailBase.java"
+
+startProcessing "com\mrnobody\morecommands\asm\transform\TransformForgeHooks.java" md5: aaad74756aa0841253a8786bb7de3f36
+endProcessing "com\mrnobody\morecommands\asm\transform\TransformForgeHooks.java"
+
+startProcessing "com\mrnobody\morecommands\asm\transform\TransformItemStack.java" md5: 301247c913431762d05f53749509ce3b
+endProcessing "com\mrnobody\morecommands\asm\transform\TransformItemStack.java"
+
+startProcessing "com\mrnobody\morecommands\asm\transform\TransformStyle.java" md5: dc1cec2eb88d6415cd65dea0dd641952
+endProcessing "com\mrnobody\morecommands\asm\transform\TransformStyle.java"
+
+startProcessing "com\mrnobody\morecommands\command\AbstractCommand.java" md5: 026da4fe12077527a0dbd3a40292df26
+endProcessing "com\mrnobody\morecommands\command\AbstractCommand.java"
+
+startProcessing "com\mrnobody\morecommands\command\ClientCommand.java" md5: c0d8c446a946ecdbb55847361b8dfcc0
+endProcessing "com\mrnobody\morecommands\command\ClientCommand.java"
+
+startProcessing "com\mrnobody\morecommands\command\ClientCommandProperties.java" md5: e6b3c48fc9db105d20c8c0249d7c0176
+endProcessing "com\mrnobody\morecommands\command\ClientCommandProperties.java"
+
+startProcessing "com\mrnobody\morecommands\command\Command.java" md5: ea60aa577db47c89fb32dd1d354fe3c1
+endProcessing "com\mrnobody\morecommands\command\Command.java"
+
+startProcessing "com\mrnobody\morecommands\command\CommandBase.java" md5: 4f4ee7d0576134098295aff70f6655f2
+endProcessing "com\mrnobody\morecommands\command\CommandBase.java"
+
+startProcessing "com\mrnobody\morecommands\command\CommandException.java" md5: 7b096d709d489277aa893941a66b0e99
+endProcessing "com\mrnobody\morecommands\command\CommandException.java"
+
+startProcessing "com\mrnobody\morecommands\command\CommandRequirement.java" md5: 743e729bcf5fffafed8da1ca70d48285
+endProcessing "com\mrnobody\morecommands\command\CommandRequirement.java"
+
+startProcessing "com\mrnobody\morecommands\command\CommandSender.java" md5: 900178dcd52cd181fe964dde43e4f8a9
+endProcessing "com\mrnobody\morecommands\command\CommandSender.java"
+
+startProcessing "com\mrnobody\morecommands\command\MultipleCommands.java" md5: e6424c4ce9ff136e3e0fd3776a02f6e1
+endProcessing "com\mrnobody\morecommands\command\MultipleCommands.java"
+
+startProcessing "com\mrnobody\morecommands\command\ServerCommand.java" md5: 619b64e1f4fe63ae22c6988969650f87
+endProcessing "com\mrnobody\morecommands\command\ServerCommand.java"
+
+startProcessing "com\mrnobody\morecommands\command\ServerCommandProperties.java" md5: ca7a4567aa41bde74b857c5f6e5c84c5
+endProcessing "com\mrnobody\morecommands\command\ServerCommandProperties.java"
+
+startProcessing "com\mrnobody\morecommands\command\StandardCommand.java" md5: cc0c7b6b3f05e23592055fd534c4e5d5
+endProcessing "com\mrnobody\morecommands\command\StandardCommand.java"
+
+startProcessing "com\mrnobody\morecommands\command\client\CommandAlias.java" md5: c106c3800674a0723669c862a4f6d95d
+endProcessing "com\mrnobody\morecommands\command\client\CommandAlias.java"
+
+startProcessing "com\mrnobody\morecommands\command\client\CommandBind.java" md5: 9b51d7d40a97724e85f4b0c9d0ebce51
+endProcessing "com\mrnobody\morecommands\command\client\CommandBind.java"
+
+startProcessing "com\mrnobody\morecommands\command\client\CommandCalc.java" md5: ebc3ccd976f1c92399f98aa513874350
+endProcessing "com\mrnobody\morecommands\command\client\CommandCalc.java"
+
+startProcessing "com\mrnobody\morecommands\command\client\CommandChelp.java" md5: 67f5d7f44050460c7de1987c685ebd88
+endProcessing "com\mrnobody\morecommands\command\client\CommandChelp.java"
+
+startProcessing "com\mrnobody\morecommands\command\client\CommandClear.java" md5: 35901066f54171723443dfdb8a09351b
+endProcessing "com\mrnobody\morecommands\command\client\CommandClear.java"
+
+startProcessing "com\mrnobody\morecommands\command\client\CommandClientcommands.java" md5: 734f23063c7ae6a7b25ae2a46aad556f
+endProcessing "com\mrnobody\morecommands\command\client\CommandClientcommands.java"
+
+startProcessing "com\mrnobody\morecommands\command\client\CommandClouds.java" md5: 32908db18e229216f44b5eb96a306fef
+endProcessing "com\mrnobody\morecommands\command\client\CommandClouds.java"
+
+startProcessing "com\mrnobody\morecommands\command\client\CommandCommand.java" md5: 8d21417d6e63cff2c31944a74c857d91
+endProcessing "com\mrnobody\morecommands\command\client\CommandCommand.java"
+
+startProcessing "com\mrnobody\morecommands\command\client\CommandFog.java" md5: 833677834f584a58c9de096661826a67
+endProcessing "com\mrnobody\morecommands\command\client\CommandFog.java"
+
+startProcessing "com\mrnobody\morecommands\command\client\CommandHelp.java" md5: 7ee2b070d7f3a431f687a716204389c8
+endProcessing "com\mrnobody\morecommands\command\client\CommandHelp.java"
+
+startProcessing "com\mrnobody\morecommands\command\client\CommandMacro.java" md5: a20e1fbb04b2beea3c465c2caf16b5c9
+endProcessing "com\mrnobody\morecommands\command\client\CommandMacro.java"
+
+startProcessing "com\mrnobody\morecommands\command\client\CommandMorecommands.java" md5: f9eb8dde31bdff2d67bb73172a7024e7
+endProcessing "com\mrnobody\morecommands\command\client\CommandMorecommands.java"
+
+startProcessing "com\mrnobody\morecommands\command\client\CommandMusic.java" md5: 1d12e08ad14caee0ef5d5152ad4347ca
+endProcessing "com\mrnobody\morecommands\command\client\CommandMusic.java"
+
+startProcessing "com\mrnobody\morecommands\command\client\CommandOutput.java" md5: ade8fc48aabefc79d83d8c1abadccbaa
+endProcessing "com\mrnobody\morecommands\command\client\CommandOutput.java"
+
+startProcessing "com\mrnobody\morecommands\command\client\CommandPlayeruuid.java" md5: 8438fb5408d8b676d4ad1da1dd8e650c
+endProcessing "com\mrnobody\morecommands\command\client\CommandPlayeruuid.java"
+
+startProcessing "com\mrnobody\morecommands\command\client\CommandPosition.java" md5: ebc32d3f91d97e35f93a538099c674ce
+endProcessing "com\mrnobody\morecommands\command\client\CommandPosition.java"
+
+startProcessing "com\mrnobody\morecommands\command\client\CommandSettings.java" md5: d6281047abd0bd34b0519786f2f29538
+endProcessing "com\mrnobody\morecommands\command\client\CommandSettings.java"
+
+startProcessing "com\mrnobody\morecommands\command\client\CommandShelp.java" md5: abe6be24d752e6e359525c06a6fbfda8
+endProcessing "com\mrnobody\morecommands\command\client\CommandShelp.java"
+
+startProcessing "com\mrnobody\morecommands\command\client\CommandSudo.java" md5: 9f7952c471f9b2fb63eef5a0e1b4eec8
+endProcessing "com\mrnobody\morecommands\command\client\CommandSudo.java"
+
+startProcessing "com\mrnobody\morecommands\command\client\CommandVar.java" md5: 651724c42c4aec98460eaedcf5316d32
+endProcessing "com\mrnobody\morecommands\command\client\CommandVar.java"
+
+startProcessing "com\mrnobody\morecommands\command\client\CommandWorld.java" md5: 27b2c7e26849be9319f8bacbb315df21
+endProcessing "com\mrnobody\morecommands\command\client\CommandWorld.java"
+
+startProcessing "com\mrnobody\morecommands\command\server\CommandAir.java" md5: 688cf795a667a087f83ffcb5e1a81c8e
+endProcessing "com\mrnobody\morecommands\command\server\CommandAir.java"
+
+startProcessing "com\mrnobody\morecommands\command\server\CommandAlias.java" md5: e8ddcd537e6e7e2f5239e021975fba4f
+endProcessing "com\mrnobody\morecommands\command\server\CommandAlias.java"
+
+startProcessing "com\mrnobody\morecommands\command\server\CommandAscend.java" md5: 044784cf8928cf1f35e9d982ea15ed81
+endProcessing "com\mrnobody\morecommands\command\server\CommandAscend.java"
+
+startProcessing "com\mrnobody\morecommands\command\server\CommandBiome.java" md5: 9d6631d0da90fb8a3ebda815bf03a2fc
+endProcessing "com\mrnobody\morecommands\command\server\CommandBiome.java"
+
+startProcessing "com\mrnobody\morecommands\command\server\CommandBlocklight.java" md5: 320abf64a2503e73ef75fb760f5adcb4
+endProcessing "com\mrnobody\morecommands\command\server\CommandBlocklight.java"
+
+startProcessing "com\mrnobody\morecommands\command\server\CommandBreakspeed.java" md5: 404dc2b5ff1088c2f9ebf25aac8dd13f
+endProcessing "com\mrnobody\morecommands\command\server\CommandBreakspeed.java"
+
+startProcessing "com\mrnobody\morecommands\command\server\CommandBreathe.java" md5: be97a68879b1d1cea371cbfd302089d2
+endProcessing "com\mrnobody\morecommands\command\server\CommandBreathe.java"
+
+startProcessing "com\mrnobody\morecommands\command\server\CommandBring.java" md5: 07f345937c36ea328d377c4a91329031
+endProcessing "com\mrnobody\morecommands\command\server\CommandBring.java"
+
+startProcessing "com\mrnobody\morecommands\command\server\CommandCalc.java" md5: 1e5b2822987cc5ae3a4b7c4363912871
+endProcessing "com\mrnobody\morecommands\command\server\CommandCalc.java"
+
+startProcessing "com\mrnobody\morecommands\command\server\CommandCannon.java" md5: a7b53cb2ef5fba94002757f8c6539123
+endProcessing "com\mrnobody\morecommands\command\server\CommandCannon.java"
+
+startProcessing "com\mrnobody\morecommands\command\server\CommandChatchannel.java" md5: a8a66f0c723b6c6fa9fa07ad27c259b7
+endProcessing "com\mrnobody\morecommands\command\server\CommandChatchannel.java"
+
+startProcessing "com\mrnobody\morecommands\command\server\CommandChatstyle.java" md5: b34874ab6614abf42f0230af7ea38c34
+endProcessing "com\mrnobody\morecommands\command\server\CommandChatstyle.java"
+
+startProcessing "com\mrnobody\morecommands\command\server\CommandCheats.java" md5: 35481c3e8633f927d8e41f3fab75dc2f
+endProcessing "com\mrnobody\morecommands\command\server\CommandCheats.java"
+
+startProcessing "com\mrnobody\morecommands\command\server\CommandChest.java" md5: 37ece94609d953197997fa0f0604fdf2
+endProcessing "com\mrnobody\morecommands\command\server\CommandChest.java"
+
+startProcessing "com\mrnobody\morecommands\command\server\CommandCleardrops.java" md5: e6de94531c598ffe60eb44e78d94470d
+endProcessing "com\mrnobody\morecommands\command\server\CommandCleardrops.java"
+
+startProcessing "com\mrnobody\morecommands\command\server\CommandClimb.java" md5: ed52a9e77f7e63f76bc856f7318a7f94
+endProcessing "com\mrnobody\morecommands\command\server\CommandClimb.java"
+
+startProcessing "com\mrnobody\morecommands\command\server\CommandClone.java" md5: 0826d56a6de155756f4382dc5b3be3b5
+endProcessing "com\mrnobody\morecommands\command\server\CommandClone.java"
+
+startProcessing "com\mrnobody\morecommands\command\server\CommandCommand.java" md5: 3c759b9a97d2d20c6ecbbc18f9f080d5
+endProcessing "com\mrnobody\morecommands\command\server\CommandCommand.java"
+
+startProcessing "com\mrnobody\morecommands\command\server\CommandCompass.java" md5: fbaa4dc651f3d56f3a681ee3272e6360
+endProcessing "com\mrnobody\morecommands\command\server\CommandCompass.java"
+
+startProcessing "com\mrnobody\morecommands\command\server\CommandConfuse.java" md5: ee273352c9876528375992430b406749
+endProcessing "com\mrnobody\morecommands\command\server\CommandConfuse.java"
+
+startProcessing "com\mrnobody\morecommands\command\server\CommandConfusesuicide.java" md5: 6d455355f0458de08cd1dac8fc4f28e6
+endProcessing "com\mrnobody\morecommands\command\server\CommandConfusesuicide.java"
+
+startProcessing "com\mrnobody\morecommands\command\server\CommandCreeper.java" md5: df0b00c6049a641e17823201f540feaf
+endProcessing "com\mrnobody\morecommands\command\server\CommandCreeper.java"
+
+startProcessing "com\mrnobody\morecommands\command\server\CommandCriticalhit.java" md5: 3d702d5d82ba007ce3a9aa91715c8dcf
+endProcessing "com\mrnobody\morecommands\command\server\CommandCriticalhit.java"
+
+startProcessing "com\mrnobody\morecommands\command\server\CommandCyclepainting.java" md5: 978a3e8343e90c4d0765cb7f1dc170d1
+endProcessing "com\mrnobody\morecommands\command\server\CommandCyclepainting.java"
+
+startProcessing "com\mrnobody\morecommands\command\server\CommandDamage.java" md5: 6e1d10a4a076225bb9b685ebe6f700d0
+endProcessing "com\mrnobody\morecommands\command\server\CommandDamage.java"
+
+startProcessing "com\mrnobody\morecommands\command\server\CommandDefuse.java" md5: c22fe12a06fc5fb5ffb6d401635c8aca
+endProcessing "com\mrnobody\morecommands\command\server\CommandDefuse.java"
+
+startProcessing "com\mrnobody\morecommands\command\server\CommandDescend.java" md5: 65d25265e2901923d64e52b85fb4e569
+endProcessing "com\mrnobody\morecommands\command\server\CommandDescend.java"
+
+startProcessing "com\mrnobody\morecommands\command\server\CommandDestroy.java" md5: 34801bc8243126bbd3cea8721b10ae5d
+endProcessing "com\mrnobody\morecommands\command\server\CommandDestroy.java"
+
+startProcessing "com\mrnobody\morecommands\command\server\CommandDifficulty.java" md5: a01084249c1f4dce5b6189030d42b80f
+endProcessing "com\mrnobody\morecommands\command\server\CommandDifficulty.java"
+
+startProcessing "com\mrnobody\morecommands\command\server\CommandDimension.java" md5: 4578e04034c88c627fbc24e7eb98f33c
+endProcessing "com\mrnobody\morecommands\command\server\CommandDimension.java"
+
+startProcessing "com\mrnobody\morecommands\command\server\CommandDodrops.java" md5: bf4c2fe916c16a574030d8b5ae94ba5d
+endProcessing "com\mrnobody\morecommands\command\server\CommandDodrops.java"
+
+startProcessing "com\mrnobody\morecommands\command\server\CommandDropstore.java" md5: bed3a4bbb218fdcc484d306906845c4f
+endProcessing "com\mrnobody\morecommands\command\server\CommandDropstore.java"
+
+startProcessing "com\mrnobody\morecommands\command\server\CommandDuplicate.java" md5: 48850637a3474f793267a536bdddb0eb
+endProcessing "com\mrnobody\morecommands\command\server\CommandDuplicate.java"
+
+startProcessing "com\mrnobody\morecommands\command\server\CommandEffect.java" md5: 38e1ce60647a6b483e9ee00677ffb9aa
+endProcessing "com\mrnobody\morecommands\command\server\CommandEffect.java"
+
+startProcessing "com\mrnobody\morecommands\command\server\CommandEnchant.java" md5: b8d23694d46013acd059718a25cfe821
+endProcessing "com\mrnobody\morecommands\command\server\CommandEnchant.java"
+
+startProcessing "com\mrnobody\morecommands\command\server\CommandEnderman.java" md5: 664a1ab514563856c57022bdf8f3aa95
+endProcessing "com\mrnobody\morecommands\command\server\CommandEnderman.java"
+
+startProcessing "com\mrnobody\morecommands\command\server\CommandExecute.java" md5: 5eb24c76d93579fc4e589111e92216d1
+endProcessing "com\mrnobody\morecommands\command\server\CommandExecute.java"
+
+startProcessing "com\mrnobody\morecommands\command\server\CommandExplode.java" md5: d26c0f5c492081077eec7caaf7fdb270
+endProcessing "com\mrnobody\morecommands\command\server\CommandExplode.java"
+
+startProcessing "com\mrnobody\morecommands\command\server\CommandExplosions.java" md5: f93147d7672051211f4edb187bfef42b
+endProcessing "com\mrnobody\morecommands\command\server\CommandExplosions.java"
+
+startProcessing "com\mrnobody\morecommands\command\server\CommandExterminate.java" md5: e6ed2627987407b8ffe61ff80a59dd4c
+endProcessing "com\mrnobody\morecommands\command\server\CommandExterminate.java"
+
+startProcessing "com\mrnobody\morecommands\command\server\CommandExtinguish.java" md5: 4943ab9c3fc1df2126bf5cc801ced7d8
+endProcessing "com\mrnobody\morecommands\command\server\CommandExtinguish.java"
+
+startProcessing "com\mrnobody\morecommands\command\server\CommandFalldamage.java" md5: 1ae7267b8b26a537e603c6c8aa45efb2
+endProcessing "com\mrnobody\morecommands\command\server\CommandFalldamage.java"
+
+startProcessing "com\mrnobody\morecommands\command\server\CommandFiredamage.java" md5: d29610d2d036a698bc4f35b453ac1d3e
+endProcessing "com\mrnobody\morecommands\command\server\CommandFiredamage.java"
+
+startProcessing "com\mrnobody\morecommands\command\server\CommandFirework.java" md5: d7995c703274ccfb1bec2a96b911a182
+endProcessing "com\mrnobody\morecommands\command\server\CommandFirework.java"
+
+startProcessing "com\mrnobody\morecommands\command\server\CommandFlammable.java" md5: 2fc8216d07665cc5340f8184d35b1418
+endProcessing "com\mrnobody\morecommands\command\server\CommandFlammable.java"
+
+startProcessing "com\mrnobody\morecommands\command\server\CommandFluidmovement.java" md5: b17c0b6f4009df4292e2aba81751b2c0
+endProcessing "com\mrnobody\morecommands\command\server\CommandFluidmovement.java"
+
+startProcessing "com\mrnobody\morecommands\command\server\CommandFly.java" md5: a7542a155d82f553f97036ecedafdee2
+endProcessing "com\mrnobody\morecommands\command\server\CommandFly.java"
+
+startProcessing "com\mrnobody\morecommands\command\server\CommandFreecam.java" md5: 2da6cc1427435a39fc416e430fc6248e
+endProcessing "com\mrnobody\morecommands\command\server\CommandFreecam.java"
+
+startProcessing "com\mrnobody\morecommands\command\server\CommandFreeze.java" md5: 3a28ba407420b7d0f24b4906a0f854e9
+endProcessing "com\mrnobody\morecommands\command\server\CommandFreeze.java"
+
+startProcessing "com\mrnobody\morecommands\command\server\CommandFreezecam.java" md5: 8078878cd97d3537017c3e0157edc482
+endProcessing "com\mrnobody\morecommands\command\server\CommandFreezecam.java"
+
+startProcessing "com\mrnobody\morecommands\command\server\CommandGive.java" md5: 6078715329f3f5e85e3068bfa41b141c
+endProcessing "com\mrnobody\morecommands\command\server\CommandGive.java"
+
+startProcessing "com\mrnobody\morecommands\command\server\CommandGrow.java" md5: 0cae93d40a7fc7e29b4c1a9f96331b56
+endProcessing "com\mrnobody\morecommands\command\server\CommandGrow.java"
+
+startProcessing "com\mrnobody\morecommands\command\server\CommandHandshake.java" md5: dd5aa8c217ed3d65da4067d470f9f818
+endProcessing "com\mrnobody\morecommands\command\server\CommandHandshake.java"
+
+startProcessing "com\mrnobody\morecommands\command\server\CommandHardcore.java" md5: 3013edb5c0d7324eea1a1e40dc328575
+endProcessing "com\mrnobody\morecommands\command\server\CommandHardcore.java"
+
+startProcessing "com\mrnobody\morecommands\command\server\CommandHeal.java" md5: a8a17e3a387cf0a8520b728bd094e067
+endProcessing "com\mrnobody\morecommands\command\server\CommandHeal.java"
+
+startProcessing "com\mrnobody\morecommands\command\server\CommandHealth.java" md5: 5637831de513302e1f89dbc36b635911
+endProcessing "com\mrnobody\morecommands\command\server\CommandHealth.java"
+
+startProcessing "com\mrnobody\morecommands\command\server\CommandHelp.java" md5: 653f5a2e8256b6069d14b12080f17885
+endProcessing "com\mrnobody\morecommands\command\server\CommandHelp.java"
+
+startProcessing "com\mrnobody\morecommands\command\server\CommandHome.java" md5: 65b74e1a868991762a6ee322264abf07
+endProcessing "com\mrnobody\morecommands\command\server\CommandHome.java"
+
+startProcessing "com\mrnobody\morecommands\command\server\CommandHunger.java" md5: e2cc53417963c40553ae970c69958a16
+endProcessing "com\mrnobody\morecommands\command\server\CommandHunger.java"
+
+startProcessing "com\mrnobody\morecommands\command\server\CommandHurt.java" md5: 718616ecf96367948402f52cc7ee3c49
+endProcessing "com\mrnobody\morecommands\command\server\CommandHurt.java"
+
+startProcessing "com\mrnobody\morecommands\command\server\CommandIgnite.java" md5: 20a79e5315a3ac4e9811693595c757f3
+endProcessing "com\mrnobody\morecommands\command\server\CommandIgnite.java"
+
+startProcessing "com\mrnobody\morecommands\command\server\CommandIgnorespawn.java" md5: 9af70a97d29c03447e421ec8132627cd
+endProcessing "com\mrnobody\morecommands\command\server\CommandIgnorespawn.java"
+
+startProcessing "com\mrnobody\morecommands\command\server\CommandInfiniteitems.java" md5: 9db7891abc050e49fe07d01297ed0b86
+endProcessing "com\mrnobody\morecommands\command\server\CommandInfiniteitems.java"
+
+startProcessing "com\mrnobody\morecommands\command\server\CommandInstantgrow.java" md5: 5a5ac8ee9cbb4d9cc6854c15a9729946
+endProcessing "com\mrnobody\morecommands\command\server\CommandInstantgrow.java"
+
+startProcessing "com\mrnobody\morecommands\command\server\CommandInstantkill.java" md5: b2f85c3ad332486f60f88765aaca0744
+endProcessing "com\mrnobody\morecommands\command\server\CommandInstantkill.java"
+
+startProcessing "com\mrnobody\morecommands\command\server\CommandInstantmine.java" md5: 3eda99706214688377dc8a02c3208cb4
+endProcessing "com\mrnobody\morecommands\command\server\CommandInstantmine.java"
+
+startProcessing "com\mrnobody\morecommands\command\server\CommandInventory.java" md5: ac00a57c9004baa3998a869df2431d16
+endProcessing "com\mrnobody\morecommands\command\server\CommandInventory.java"
+
+startProcessing "com\mrnobody\morecommands\command\server\CommandInvisible.java" md5: 34c90b7512e10153eed3206390bcdb21
+endProcessing "com\mrnobody\morecommands\command\server\CommandInvisible.java"
+
+startProcessing "com\mrnobody\morecommands\command\server\CommandInvrotate.java" md5: 24058c2c0238d979a6e62e5d880662ae
+endProcessing "com\mrnobody\morecommands\command\server\CommandInvrotate.java"
+
+startProcessing "com\mrnobody\morecommands\command\server\CommandItemdamage.java" md5: c0efb4afac0a44b7a9122cf297ce0c49
+endProcessing "com\mrnobody\morecommands\command\server\CommandItemdamage.java"
+
+startProcessing "com\mrnobody\morecommands\command\server\CommandItemname.java" md5: 303f88a141a654a5fa2d75ffb7171421
+endProcessing "com\mrnobody\morecommands\command\server\CommandItemname.java"
+
+startProcessing "com\mrnobody\morecommands\command\server\CommandJump.java" md5: 59dccb09121bd97e43b87d0b1869c9b5
+endProcessing "com\mrnobody\morecommands\command\server\CommandJump.java"
+
+startProcessing "com\mrnobody\morecommands\command\server\CommandJumpheight.java" md5: 76fa260da5c2325b43b8e04e0bd69479
+endProcessing "com\mrnobody\morecommands\command\server\CommandJumpheight.java"
+
+startProcessing "com\mrnobody\morecommands\command\server\CommandKeepinventory.java" md5: 90d9545e7d7a30141a3e7f1d83e33cb6
+endProcessing "com\mrnobody\morecommands\command\server\CommandKeepinventory.java"
+
+startProcessing "com\mrnobody\morecommands\command\server\CommandKill.java" md5: cf92a21027cb9c824ff52d4ef8a92afd
+endProcessing "com\mrnobody\morecommands\command\server\CommandKill.java"
+
+startProcessing "com\mrnobody\morecommands\command\server\CommandKillall.java" md5: 55e7443099c3bea29fbebc5eeb305733
+endProcessing "com\mrnobody\morecommands\command\server\CommandKillall.java"
+
+startProcessing "com\mrnobody\morecommands\command\server\CommandKillattacker.java" md5: 7f42ceaeb52d30649afbdb40d219090b
+endProcessing "com\mrnobody\morecommands\command\server\CommandKillattacker.java"
+
+startProcessing "com\mrnobody\morecommands\command\server\CommandLight.java" md5: a91a8ab0a3d5e649e5fefcd5fa6b375d
+endProcessing "com\mrnobody\morecommands\command\server\CommandLight.java"
+
+startProcessing "com\mrnobody\morecommands\command\server\CommandMacro.java" md5: 3df8d0d34068819d14ea40fa9b194c65
+endProcessing "com\mrnobody\morecommands\command\server\CommandMacro.java"
+
+startProcessing "com\mrnobody\morecommands\command\server\CommandMelt.java" md5: 87c36ae3db9f5e733872dd81e73b04dd
+endProcessing "com\mrnobody\morecommands\command\server\CommandMelt.java"
+
+startProcessing "com\mrnobody\morecommands\command\server\CommandMobdamage.java" md5: ea0cce496ac8b30af203e69e68494317
+endProcessing "com\mrnobody\morecommands\command\server\CommandMobdamage.java"
+
+startProcessing "com\mrnobody\morecommands\command\server\CommandMorecommands.java" md5: 0c0b94b8f9ba9261a5570c97b7de16be
+endProcessing "com\mrnobody\morecommands\command\server\CommandMorecommands.java"
+
+startProcessing "com\mrnobody\morecommands\command\server\CommandMove.java" md5: c7c8e7fc591d8abb0fc5c13d30cafcc9
+endProcessing "com\mrnobody\morecommands\command\server\CommandMove.java"
+
+startProcessing "com\mrnobody\morecommands\command\server\CommandNbt.java" md5: 4c9966f34aebd639104f131c69132a5a
+endProcessing "com\mrnobody\morecommands\command\server\CommandNbt.java"
+
+startProcessing "com\mrnobody\morecommands\command\server\CommandNoattack.java" md5: eee29dd89555ca9dff5be89011ab449d
+endProcessing "com\mrnobody\morecommands\command\server\CommandNoattack.java"
+
+startProcessing "com\mrnobody\morecommands\command\server\CommandNoclip.java" md5: 2b2a5b01be53f582288a134f6bd38939
+endProcessing "com\mrnobody\morecommands\command\server\CommandNoclip.java"
+
+startProcessing "com\mrnobody\morecommands\command\server\CommandOp.java" md5: e69efdb57a9e459238b7697b9db0659b
+endProcessing "com\mrnobody\morecommands\command\server\CommandOp.java"
+
+startProcessing "com\mrnobody\morecommands\command\server\CommandOpen.java" md5: 25685bcc6a573aeec6a920eec9464805
+endProcessing "com\mrnobody\morecommands\command\server\CommandOpen.java"
+
+startProcessing "com\mrnobody\morecommands\command\server\CommandOutput.java" md5: 972e5a5b5b5aca2331d0c7c799010c9f
+endProcessing "com\mrnobody\morecommands\command\server\CommandOutput.java"
+
+startProcessing "com\mrnobody\morecommands\command\server\CommandPath.java" md5: 22d0bdbac13dc8efb5c8fce163cd63af
+endProcessing "com\mrnobody\morecommands\command\server\CommandPath.java"
+
+startProcessing "com\mrnobody\morecommands\command\server\CommandPermission.java" md5: 9a14fa75adf9623d9bba24e1bae3d7ee
+endProcessing "com\mrnobody\morecommands\command\server\CommandPermission.java"
+
+startProcessing "com\mrnobody\morecommands\command\server\CommandPick.java" md5: 07d053ead6521d1b2d93db760eed85b6
+endProcessing "com\mrnobody\morecommands\command\server\CommandPick.java"
+
+startProcessing "com\mrnobody\morecommands\command\server\CommandPickup.java" md5: 130ae4d3dd891a665789b912109c3ee9
+endProcessing "com\mrnobody\morecommands\command\server\CommandPickup.java"
+
+startProcessing "com\mrnobody\morecommands\command\server\CommandPlayeruuid.java" md5: 6b5d5af7a5de8a7580e0169e34180f03
+endProcessing "com\mrnobody\morecommands\command\server\CommandPlayeruuid.java"
+
+startProcessing "com\mrnobody\morecommands\command\server\CommandPosition.java" md5: e79ddad0c4a25f385dba18f0c19d6f0a
+endProcessing "com\mrnobody\morecommands\command\server\CommandPosition.java"
+
+startProcessing "com\mrnobody\morecommands\command\server\CommandReach.java" md5: 15f7f452771211d089e1774b8f3f50e1
+endProcessing "com\mrnobody\morecommands\command\server\CommandReach.java"
+
+startProcessing "com\mrnobody\morecommands\command\server\CommandRefill.java" md5: 21eacb934bda1d363dc981d8c3251f77
+endProcessing "com\mrnobody\morecommands\command\server\CommandRefill.java"
+
+startProcessing "com\mrnobody\morecommands\command\server\CommandRepair.java" md5: c26b7362d2f6b51585fc94a3a49b69b3
+endProcessing "com\mrnobody\morecommands\command\server\CommandRepair.java"
+
+startProcessing "com\mrnobody\morecommands\command\server\CommandReturn.java" md5: b87064ba0caabeeb31ee0bc85450d8c8
+endProcessing "com\mrnobody\morecommands\command\server\CommandReturn.java"
+
+startProcessing "com\mrnobody\morecommands\command\server\CommandRide.java" md5: d986eca80098fd2da819b4b897d24852
+endProcessing "com\mrnobody\morecommands\command\server\CommandRide.java"
+
+startProcessing "com\mrnobody\morecommands\command\server\CommandScuba.java" md5: 34ff36be381dd6d49be0984d1df7f90c
+endProcessing "com\mrnobody\morecommands\command\server\CommandScuba.java"
+
+startProcessing "com\mrnobody\morecommands\command\server\CommandSetspawn.java" md5: 52a38bd17a7b1419c8a686510e396f91
+endProcessing "com\mrnobody\morecommands\command\server\CommandSetspawn.java"
+
+startProcessing "com\mrnobody\morecommands\command\server\CommandSettings.java" md5: 636bfc8b6280e8e337074f162b7e08f0
+endProcessing "com\mrnobody\morecommands\command\server\CommandSettings.java"
+
+startProcessing "com\mrnobody\morecommands\command\server\CommandSign.java" md5: 30fab8a882e3884ed7c9068d40238369
+endProcessing "com\mrnobody\morecommands\command\server\CommandSign.java"
+
+startProcessing "com\mrnobody\morecommands\command\server\CommandSlippery.java" md5: e0a0f2059e385c28421db4cb2098dc36
+endProcessing "com\mrnobody\morecommands\command\server\CommandSlippery.java"
+
+startProcessing "com\mrnobody\morecommands\command\server\CommandSpawn.java" md5: 6aea465f99463b68b2a21f2dd011580f
+endProcessing "com\mrnobody\morecommands\command\server\CommandSpawn.java"
+
+startProcessing "com\mrnobody\morecommands\command\server\CommandSpawner.java" md5: 3c8c307973bfc67917573bd051d7e57f
+endProcessing "com\mrnobody\morecommands\command\server\CommandSpawner.java"
+
+startProcessing "com\mrnobody\morecommands\command\server\CommandSpawnportal.java" md5: dce02889ae707da5a109124874ba3644
+endProcessing "com\mrnobody\morecommands\command\server\CommandSpawnportal.java"
+
+startProcessing "com\mrnobody\morecommands\command\server\CommandSpeed.java" md5: be68667ae0f143b8e7e4df562604135d
+endProcessing "com\mrnobody\morecommands\command\server\CommandSpeed.java"
+
+startProcessing "com\mrnobody\morecommands\command\server\CommandSprint.java" md5: a25bc9fa655d4d1525df6394d57737f8
+endProcessing "com\mrnobody\morecommands\command\server\CommandSprint.java"
+
+startProcessing "com\mrnobody\morecommands\command\server\CommandStackcombine.java" md5: af8b62a8e7c76ceccdd0b88bcc46c598
+endProcessing "com\mrnobody\morecommands\command\server\CommandStackcombine.java"
+
+startProcessing "com\mrnobody\morecommands\command\server\CommandStepheight.java" md5: 5cefa5184b2948bb3af3da78e0c4d6eb
+endProcessing "com\mrnobody\morecommands\command\server\CommandStepheight.java"
+
+startProcessing "com\mrnobody\morecommands\command\server\CommandSuperpunch.java" md5: 68876aeb6844f18bda9b81d87b004be8
+endProcessing "com\mrnobody\morecommands\command\server\CommandSuperpunch.java"
+
+startProcessing "com\mrnobody\morecommands\command\server\CommandTeleport.java" md5: 5568c5f3b3a01ced0e62d916946bdd23
+endProcessing "com\mrnobody\morecommands\command\server\CommandTeleport.java"
+
+startProcessing "com\mrnobody\morecommands\command\server\CommandThru.java" md5: 85da81a8fbd5860f83f91cced0acfa14
+endProcessing "com\mrnobody\morecommands\command\server\CommandThru.java"
+
+startProcessing "com\mrnobody\morecommands\command\server\CommandVar.java" md5: c42ea306229263ab1b8eeaefa0581926
+endProcessing "com\mrnobody\morecommands\command\server\CommandVar.java"
+
+startProcessing "com\mrnobody\morecommands\command\server\CommandWaterdamage.java" md5: c4c2c966de461e4632143c7e48efc71e
+endProcessing "com\mrnobody\morecommands\command\server\CommandWaterdamage.java"
+
+startProcessing "com\mrnobody\morecommands\command\server\CommandWaypoint.java" md5: c7771b331255f7daebb08e089a278bcc
+endProcessing "com\mrnobody\morecommands\command\server\CommandWaypoint.java"
+
+startProcessing "com\mrnobody\morecommands\command\server\CommandWeather.java" md5: 291e934f70d9a387870ed336c0c4e0f6
+endProcessing "com\mrnobody\morecommands\command\server\CommandWeather.java"
+
+startProcessing "com\mrnobody\morecommands\command\server\CommandWorld.java" md5: 739ce93c6c812c9fe0049b9fc50289a9
+endProcessing "com\mrnobody\morecommands\command\server\CommandWorld.java"
+
+startProcessing "com\mrnobody\morecommands\command\server\CommandXray.java" md5: 16af705f6c6a32dbeda0449e0b4fac54
+endProcessing "com\mrnobody\morecommands\command\server\CommandXray.java"
+
+startProcessing "com\mrnobody\morecommands\core\ClientHandler.java" md5: 33956223bcfb81df0de1e242c3b133aa
+endProcessing "com\mrnobody\morecommands\core\ClientHandler.java"
+
+startProcessing "com\mrnobody\morecommands\core\ClientProxy.java" md5: 37453ebc30dc70689af9ca76526e6c17
+endProcessing "com\mrnobody\morecommands\core\ClientProxy.java"
+
+startProcessing "com\mrnobody\morecommands\core\CommonHandler.java" md5: 42f46949208fd06784559d072966d5a4
+endProcessing "com\mrnobody\morecommands\core\CommonHandler.java"
+
+startProcessing "com\mrnobody\morecommands\core\CommonProxy.java" md5: 378f71d727fd1a3417056ce981dbbdcf
+endProcessing "com\mrnobody\morecommands\core\CommonProxy.java"
+
+startProcessing "com\mrnobody\morecommands\core\MoreCommands.java" md5: e8981f62666483aff3381203ab6e91ee
+endProcessing "com\mrnobody\morecommands\core\MoreCommands.java"
+
+startProcessing "com\mrnobody\morecommands\event\DamageItemEvent.java" md5: 0a5f7d9f5774a8a44a9df1dd8f48a9ad
+endProcessing "com\mrnobody\morecommands\event\DamageItemEvent.java"
+
+startProcessing "com\mrnobody\morecommands\event\EventHandler.java" md5: e0dbbe519d169703ee371d722f6b54b6
+endProcessing "com\mrnobody\morecommands\event\EventHandler.java"
+
+startProcessing "com\mrnobody\morecommands\event\ItemStackChangeSizeEvent.java" md5: 602f198b9e92099488ed11b9eb7eccd7
+endProcessing "com\mrnobody\morecommands\event\ItemStackChangeSizeEvent.java"
+
+startProcessing "com\mrnobody\morecommands\event\Listeners.java" md5: 9c56087103862df779718e71c51ebb06
+endProcessing "com\mrnobody\morecommands\event\Listeners.java"
+
+startProcessing "com\mrnobody\morecommands\network\PacketDispatcher.java" md5: 97fa47b310ff2bfaaa79a765ccdab37b
+endProcessing "com\mrnobody\morecommands\network\PacketDispatcher.java"
+
+startProcessing "com\mrnobody\morecommands\network\PacketHandlerClient.java" md5: d0d526e0a620f9090e8decdd6d29b700
+endProcessing "com\mrnobody\morecommands\network\PacketHandlerClient.java"
+
+startProcessing "com\mrnobody\morecommands\network\PacketHandlerServer.java" md5: d84d51960847e6954ee06b564e77649e
+endProcessing "com\mrnobody\morecommands\network\PacketHandlerServer.java"
+
+startProcessing "com\mrnobody\morecommands\patch\PatchChatGui.java" md5: d8f6fca8a5a0d84536846409fc11566c
+endProcessing "com\mrnobody\morecommands\patch\PatchChatGui.java"
+
+startProcessing "com\mrnobody\morecommands\patch\PatchClientCommandManager.java" md5: 7ab8a50c6b6bfdb3053482a574c0ef8b
+endProcessing "com\mrnobody\morecommands\patch\PatchClientCommandManager.java"
+
+startProcessing "com\mrnobody\morecommands\patch\PatchEntityPlayerMP.java" md5: d89cf70b82462bbdbb87f797a9c28998
+endProcessing "com\mrnobody\morecommands\patch\PatchEntityPlayerMP.java"
+
+startProcessing "com\mrnobody\morecommands\patch\PatchEntityPlayerSP.java" md5: e881fbda60abb3d50c6c022c9835f088
+endProcessing "com\mrnobody\morecommands\patch\PatchEntityPlayerSP.java"
+
+startProcessing "com\mrnobody\morecommands\patch\PatchList.java" md5: a53715cd557589c974686055a3c65498
+endProcessing "com\mrnobody\morecommands\patch\PatchList.java"
+
+startProcessing "com\mrnobody\morecommands\patch\PatchManager.java" md5: 53eebffd46d1185049cf792573a073e6
+endProcessing "com\mrnobody\morecommands\patch\PatchManager.java"
+
+startProcessing "com\mrnobody\morecommands\patch\PatchNetHandlerPlayServer.java" md5: 16ac05218ace8bb01eb4f0ab102adce4
+endProcessing "com\mrnobody\morecommands\patch\PatchNetHandlerPlayServer.java"
+
+startProcessing "com\mrnobody\morecommands\patch\PatchRenderGlobal.java" md5: 49e3457dd3f7fa8e284f851c27180b30
+endProcessing "com\mrnobody\morecommands\patch\PatchRenderGlobal.java"
+
+startProcessing "com\mrnobody\morecommands\patch\PatchServerCommandManager.java" md5: 70f48645f12db5c3ffeae33b2f936614
+endProcessing "com\mrnobody\morecommands\patch\PatchServerCommandManager.java"
+
+startProcessing "com\mrnobody\morecommands\settings\ChangeNotifyingMap.java" md5: 6309effcf93be2c88266edc0c2b7a8e5
+endProcessing "com\mrnobody\morecommands\settings\ChangeNotifyingMap.java"
+
+startProcessing "com\mrnobody\morecommands\settings\ClientPlayerSettings.java" md5: e6e3da66c1669c51556a2288f09df074
+endProcessing "com\mrnobody\morecommands\settings\ClientPlayerSettings.java"
+
+startProcessing "com\mrnobody\morecommands\settings\Config.java" md5: e1105849770f88ca0e3cfedfc75ed65b
+endProcessing "com\mrnobody\morecommands\settings\Config.java"
+
+startProcessing "com\mrnobody\morecommands\settings\DummySettingsManager.java" md5: 9c7961e77c6005adce2198f223f6cb2c
+endProcessing "com\mrnobody\morecommands\settings\DummySettingsManager.java"
+
+startProcessing "com\mrnobody\morecommands\settings\GlobalSettings.java" md5: f4f81d4a611bc870fd50ee86ebc6f95b
+endProcessing "com\mrnobody\morecommands\settings\GlobalSettings.java"
+
+startProcessing "com\mrnobody\morecommands\settings\JsonSettingsManager.java" md5: d6d0114913c75cee80d7390d97da1412
+endProcessing "com\mrnobody\morecommands\settings\JsonSettingsManager.java"
+
+startProcessing "com\mrnobody\morecommands\settings\MergedMappedSettings.java" md5: e451f89bedb67891b3280ed570ad66f7
+endProcessing "com\mrnobody\morecommands\settings\MergedMappedSettings.java"
+
+startProcessing "com\mrnobody\morecommands\settings\MoreCommandsConfig.java" md5: cb24cd5a14b371672b4c2ce451a04a0d
+endProcessing "com\mrnobody\morecommands\settings\MoreCommandsConfig.java"
+
+startProcessing "com\mrnobody\morecommands\settings\NBTSettingsManager.java" md5: 6bda0a3170d2996f29baabd38d338ad1
+endProcessing "com\mrnobody\morecommands\settings\NBTSettingsManager.java"
+
+startProcessing "com\mrnobody\morecommands\settings\PlayerSettings.java" md5: 820e0f6efa5577c7d13b579f6985afbb
+endProcessing "com\mrnobody\morecommands\settings\PlayerSettings.java"
+
+startProcessing "com\mrnobody\morecommands\settings\RootSettingsSerializer.java" md5: 5c140ecdb9a235e3302e20c032f8d3bc
+endProcessing "com\mrnobody\morecommands\settings\RootSettingsSerializer.java"
+
+startProcessing "com\mrnobody\morecommands\settings\ServerPlayerSettings.java" md5: bb4aef0ce1c2b7d579df29bf586200b7
+endProcessing "com\mrnobody\morecommands\settings\ServerPlayerSettings.java"
+
+startProcessing "com\mrnobody\morecommands\settings\Setting.java" md5: e34092f14881feb3399694a9754caca3
+endProcessing "com\mrnobody\morecommands\settings\Setting.java"
+
+startProcessing "com\mrnobody\morecommands\settings\SettingsManager.java" md5: f24cac1eb80b55ec3919df1da9bedf77
+endProcessing "com\mrnobody\morecommands\settings\SettingsManager.java"
+
+startProcessing "com\mrnobody\morecommands\settings\SettingsProperty.java" md5: 3b3fe75e29503e4911a0ec58d63278a0
+endProcessing "com\mrnobody\morecommands\settings\SettingsProperty.java"
+
+startProcessing "com\mrnobody\morecommands\settings\SettingsSerializer.java" md5: 1dab12a1cc5952ec488b509164563499
+endProcessing "com\mrnobody\morecommands\settings\SettingsSerializer.java"
+
+startProcessing "com\mrnobody\morecommands\util\CalculationParser.java" md5: a033fe49081f7c0657a44a0c4d72f9ed
+endProcessing "com\mrnobody\morecommands\util\CalculationParser.java"
+
+startProcessing "com\mrnobody\morecommands\util\ChatChannel.java" md5: f65b1df879698ef395ef2cd8bd7cd9d8
+endProcessing "com\mrnobody\morecommands\util\ChatChannel.java"
+
+startProcessing "com\mrnobody\morecommands\util\CommandClassLoader.java" md5: 2ff5885e40453868cfdd98361c91d40c
+endProcessing "com\mrnobody\morecommands\util\CommandClassLoader.java"
+
+startProcessing "com\mrnobody\morecommands\util\DefaultChannelPolicies.java" md5: e8f64b60adee3732ccb321d51e24d147
+endProcessing "com\mrnobody\morecommands\util\DefaultChannelPolicies.java"
+
+startProcessing "com\mrnobody\morecommands\util\DummyCommand.java" md5: a2e921a4c15b50f23c093fe0d5752f5f
+endProcessing "com\mrnobody\morecommands\util\DummyCommand.java"
+
+startProcessing "com\mrnobody\morecommands\util\EntityCamera.java" md5: c2324111bea4ec9c2aceadc32d6c9ef6
+endProcessing "com\mrnobody\morecommands\util\EntityCamera.java"
+
+startProcessing "com\mrnobody\morecommands\util\EntityUtils.java" md5: 17e36cbbe7c7666a15c31077ad24a420
+endProcessing "com\mrnobody\morecommands\util\EntityUtils.java"
+
+startProcessing "com\mrnobody\morecommands\util\LanguageManager.java" md5: 4d1ce4a0035225a615b8e208d0b736dd
+endProcessing "com\mrnobody\morecommands\util\LanguageManager.java"
+
+startProcessing "com\mrnobody\morecommands\util\MoreCommandsUpdater.java" md5: 67ad3d8042412865da03b521c9b191eb
+endProcessing "com\mrnobody\morecommands\util\MoreCommandsUpdater.java"
+
+startProcessing "com\mrnobody\morecommands\util\ObfuscatedNames.java" md5: 7626e232bf09315d8fae0e1999555794
+endProcessing "com\mrnobody\morecommands\util\ObfuscatedNames.java"
+
+startProcessing "com\mrnobody\morecommands\util\Reference.java" md5: fabbd445d8ebfded079adcc2fabe21f7
+endProcessing "com\mrnobody\morecommands\util\Reference.java"
+
+startProcessing "com\mrnobody\morecommands\util\ReflectionHelper.java" md5: 0b8ae3f93e4a44d1024280b443ac7a4b
+endProcessing "com\mrnobody\morecommands\util\ReflectionHelper.java"
+
+startProcessing "com\mrnobody\morecommands\util\TargetSelector.java" md5: f0ad55abae7825ce317b2f6037f3b4e1
+endProcessing "com\mrnobody\morecommands\util\TargetSelector.java"
+
+startProcessing "com\mrnobody\morecommands\util\Variables.java" md5: df31e7320287f7467d015098e543bacf
+endProcessing "com\mrnobody\morecommands\util\Variables.java"
+
+startProcessing "com\mrnobody\morecommands\util\WorldUtils.java" md5: 70afca4f624465da5f2fe133509bcbc5
+endProcessing "com\mrnobody\morecommands\util\WorldUtils.java"
+
+startProcessing "com\mrnobody\morecommands\util\Xray.java" md5: 80a03930c616bdd981fd3b8ecb48e829
+endProcessing "com\mrnobody\morecommands\util\Xray.java"
+
+startProcessing "com\mrnobody\morecommands\util\XrayConfGui.java" md5: 934002727d9b3850f8d9d0d3375c2546
+endProcessing "com\mrnobody\morecommands\util\XrayConfGui.java"
+

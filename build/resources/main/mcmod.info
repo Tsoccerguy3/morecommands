@@ -1,0 +1,16 @@
+[
+{
+  "modid": "mrnobody_morecommands",
+  "name": "MoreCommands",
+  "description": "Mod to extend Minecraft Commands",
+  "version": "6.0a",
+  "mcversion": "1.12.2",
+  "url": "http://bit.ly/morecommands",
+  "updateUrl": "",
+  "authorList": ["MrNobody98"],
+  "credits": "MrNobody98",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
